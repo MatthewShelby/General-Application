@@ -3,11 +3,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { map, switchMap } from 'rxjs';
 import { Serduct } from 'src/app/==== Lateral ====/DTO';
 import { SerductService } from '../-----Service/serduct.service';
-// import Bootstrap from 'bootstrap/dist/js/Bootstrap/';
+// import Bootstrap from 'bootstrap/dist/js/Bootstrap/';git
 import { Carousel } from "bootstrap";
 
 
-         
+          
 @Component({
   selector: 'app-serduct',
   templateUrl: './serduct.component.html',
