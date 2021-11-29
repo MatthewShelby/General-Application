@@ -1,27 +1,100 @@
-<div class="ser-main">
-      <div class="sub-main">
+<br>
+<br>
 
 
-
-
-
-            <td *ngFor="let serduct of serducts; index as i">
-                  <app-serduct-card class="repeat-card" [serduct]="serduct"></app-serduct-card>
-            </td>
-
-
-            <!-- <app-serduct-card class="repeat-card" *ngFor="let serduct of serducts; index as i" [serduct]="serducts[i]">
-                  </app-serduct-card> -->
-
-            <!-- <div id="ser-rotate">
-
-                  <div id="holder">
-Here is holder
-                        <app-serduct-card *ngFor="let serduct of serducts; index as i" [serduct]="serducts[i]">
-                  </app-serduct-card>
-
+<div style="margin: 50px;">
+      <div id="pad" class=" row">
+            <div class=" col-1 my-auto ">
+                  <div (click)="previousSlide()" *ngIf="previousActive">
+                        <span class="material-icons d-flex  justify-content-center
+                  pointer soBig">
+                              arrow_back_ios
+                        </span>
                   </div>
+            </div>
+            <div class=" col-10  ">
+                  <div #carouselExampleSlidesOnly class="carousel slide">
 
-            </div> -->
+                        <div class=" carousel-inner">
+                              <div class="carousel-item  active ">
+                                    <div class="row">
+                                          <app-serduct-card class=" col-lg-4 col-md-6 col-sm-12 "
+                                                [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-lg-4 col-md-6 col-sm-12 "
+                                                [serduct]="serducts[1]">
+                                          </app-serduct-card>
+                                          <app-serduct-card class=" col-lg-4 col-md-6 col-sm-12 "
+                                                [serduct]="serducts[2]">
+                                          </app-serduct-card>
+                                    </div>
+                              </div>
+                              <div class="carousel-item ">
+                                    <div class="row">
+
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[1]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[2]"></app-serduct-card>
+
+                                    </div>
+                              </div>
+
+
+                              <div class="carousel-item ">
+                                    <div class="row">
+
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[1]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[2]"></app-serduct-card>
+
+                                    </div>
+                              </div>
+
+
+                              <div class="carousel-item ">
+                                    <div class="row">
+
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[1]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[2]"></app-serduct-card>
+
+                                    </div>
+                              </div>
+
+
+                              <div class="carousel-item ">
+                                    <div class="row">
+
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[1]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[2]"></app-serduct-card>
+
+                                    </div>
+                              </div>
+
+
+                              <div class="carousel-item ">
+                                    <div class="row">
+
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[0]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[1]"></app-serduct-card>
+                                          <app-serduct-card class=" col-4" [serduct]="serducts[2]"></app-serduct-card>
+
+                                    </div>
+                              </div>
+
+
+
+
+                        </div>
+                  </div>
+            </div>
+            <div class=" col-1 my-auto">
+                  <div (click)="nextSlide()" *ngIf="nextActive">
+                        <span class="material-icons d-flex  justify-content-center 
+                  align-middle pointer soBig">
+                              arrow_forward_ios
+                        </span>
+                  </div>
+            </div>
       </div>
 </div>

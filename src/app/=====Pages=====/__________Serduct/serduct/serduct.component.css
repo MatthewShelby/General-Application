@@ -1,13 +1,26 @@
 
 
+#pad{
+      background-color: rgb(255, 255, 255,0.7);
+      padding: 20px;
+      border-radius: 20px;
+}
+
+.pointer {
+      cursor: pointer;
+}
 
 
+.soBig{
+      font-size: 4rem;
+      color: lightcyan;
+      text-shadow: rgb(247, 94, 33) 1px 1px 11px ;
+}
 
-
-
-
-
-
+.carousel-item {
+      width: 90%;
+}
+    
 
 
 .ser-main{
@@ -40,16 +53,8 @@
 
 }
 
-.repeat-card{
-      height: 350px !important;
-      width: 240px !important;
-      border:hotpink 2px solid;
-      margin: 10px;
-      display: inline-block;
-      overflow: hidden;
-    
-      
-}
+
+
 
 
 
