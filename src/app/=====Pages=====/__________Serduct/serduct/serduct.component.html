@@ -1,0 +1,27 @@
+<div class="ser-main">
+      <div class="sub-main">
+
+
+
+
+
+            <td *ngFor="let serduct of serducts; index as i">
+                  <app-serduct-card class="repeat-card" [serduct]="serduct"></app-serduct-card>
+            </td>
+
+
+            <!-- <app-serduct-card class="repeat-card" *ngFor="let serduct of serducts; index as i" [serduct]="serducts[i]">
+                  </app-serduct-card> -->
+
+            <!-- <div id="ser-rotate">
+
+                  <div id="holder">
+Here is holder
+                        <app-serduct-card *ngFor="let serduct of serducts; index as i" [serduct]="serducts[i]">
+                  </app-serduct-card>
+
+                  </div>
+
+            </div> -->
+      </div>
+</div>

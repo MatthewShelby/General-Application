@@ -1,0 +1,104 @@
+
+
+
+
+
+
+
+
+
+
+
+
+.ser-main{
+      /* padding: 30px; */
+      height: 100% !important; 
+      width: 100% !important;
+      border-radius: 30px;
+      white-space: normal;
+      border: rgb(81, 48, 224) 6px solid !important;
+      /* position: relative; */
+      padding: 110px 60px 60px 60px;
+      box-sizing: border-box;
+}
+
+.sub-main{
+      border:#A8A8A8 3px solid !important;
+      border-radius: 10px;
+      height: 100% !important; 
+      width: 100% !important;
+      padding: 30px;
+      box-sizing: border-box;
+      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      
+      
+
+
+
+}
+
+.repeat-card{
+      height: 350px !important;
+      width: 240px !important;
+      border:hotpink 2px solid;
+      margin: 10px;
+      display: inline-block;
+      overflow: hidden;
+    
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#ser-rotate{
+      border: rgb(190, 186, 218) 6px solid !important;
+      transform: rotate(-90deg);
+      height: inherit;
+      width: inherit;
+      box-sizing: border-box;
+
+      /* margin: auto;
+      height: 1000px !important; 
+      width: 420px !important;
+      max-height: inherit;
+      transform: rotate(-90deg);
+      background-color: rgba(255,255,255,0.6);
+      margin: auto; */
+}
+
+#holder{
+
+      width: inherit;
+      height: inherit;
+      border: rgb(51, 48, 65) 6px solid !important;
+      box-sizing: border-box;
+
+      /*
+      height: 1200px !important; 
+      width: 750px !important;
+      max-width: inherit;
+      max-height: inherit;
+      overflow: auto;
+      border-radius: 5px;
+      margin: auto 
+*/
+}
+
+
+
+/* 
+    ::-webkit-scrollbar {
+      display: none;
+  } */
