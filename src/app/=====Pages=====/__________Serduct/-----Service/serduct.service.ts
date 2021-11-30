@@ -45,7 +45,7 @@ export class SerductService {
     ser33.images = images23;
 
 
-    serducts = [newSerducts, ser2,ser33];
+    serducts = [newSerducts, ser2, ser33];
 
     // http://www.gd-yt.cn/db_picture/pro3/201511211443227705.jpg
     // https://4.imimg.com/data4/WB/LY/MY-10167335/crane-duty-helical-gear-box-500x500.jpg
@@ -60,12 +60,42 @@ export class SerductService {
     // newSerducts.id = 'frt543';
     // newSerducts.title = 'Test - car';
     // serducts.push(newSerducts);
-    return this.extendContent(serducts);
+    serducts = this.extendContent(serducts);
+    return this.extendContent2(serducts);
   }
 
+  extendContent2(ser: Serduct[]): Serduct[] {
 
+    let serducts = Object.assign({}, ser);
+
+    let ser33 = Object.assign({}, serducts[1]);
+    ser33.id = 'za3fy45';
+    ser33.title = 'Glasses products';
+    ser33.shortDescription = "<p>Finest glasses you can found.</p><p>Finest glasses you can found.</p><p>Finest glasses you can found.</p><p>Finest glasses you can found.</p><b>Finest glasses you can found.</b>";
+    let serductImage123 = new SerductImage('69adIMG-sfg', ImageType.card, 'https://s20.picofile.com/file/8444475218/white_background_product_photoshoot_services_1000x1000.png');
+    let serductImage223 = new SerductImage('zs75IMG-ftg', ImageType.smaillThumbnail, '../../../../assets/Images/Content/50x50-logo.png');
+    let images23: SerductImage[] = [serductImage123, serductImage223];
+    ser33.images = images23;
+
+
+    let ser2 = Object.assign({}, ser[2]);
+    ser2.id = '2sc3f6yhg';
+    ser2.title = 'GL manufacturer with the best .';
+    ser2.shortDescription = 'IinterFactory comunication and making.';
+    let serductImage12 = new SerductImage('69IMG-sfg', ImageType.card, 'https://s21.picofile.com/file/8444476242/office_table_laptop_computer_digital_tablet_smartphone_isolated_pure_white_background_laptop_tablet_mockup_concept_113964775.jpg');
+    let serductImage22 = new SerductImage('75IMG-ftg', ImageType.smaillThumbnail, '../../../../assets/Images/Content/50x50-logo.png');
+    let images2: SerductImage[] = [serductImage12, serductImage22];
+    ser2.images = images2;
+
+
+
+    ser.push(ser2);
+    ser.push(ser33);
+    return ser;
+
+  }
   extendContent(ser: Serduct[]): Serduct[] {
-    
+
     let serducts = Object.assign({}, ser);
 
     let ser33 = Object.assign({}, serducts[1]);
@@ -89,9 +119,9 @@ export class SerductService {
 
 
 
-ser.push(ser2);
-ser.push(ser33);
-return ser;
+    ser.push(ser2);
+    ser.push(ser33);
+    return ser;
 
   }
 }

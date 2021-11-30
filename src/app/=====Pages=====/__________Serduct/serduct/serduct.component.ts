@@ -4,7 +4,7 @@ import { map, noop, switchMap } from 'rxjs';
 import { Serduct } from 'src/app/==== Lateral ====/DTO';
 import { SerductService } from '../-----Service/serduct.service';
 // import Bootstrap from 'bootstrap/dist/js/Bootstrap/';git
-import { Carousel } from "bootstrap";
+import { Carousel, } from "bootstrap";
 
 
 
@@ -80,7 +80,7 @@ export class SerductComponent implements AfterViewInit {
 
   ngOnInit(): void {
     this.serducts = this.serductservice.GetSerducts();
-    this.carouselCount = 5; this.serducts.length - 1;
+    this.carouselCount = this.serducts.length - 1;
   }
 
 

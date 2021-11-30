@@ -1,4 +1,6 @@
-
+.sub-slide{
+      overflow: hidden;width: 960px;
+}
 
 #pad{
       background-color: rgb(255, 255, 255,0.7);

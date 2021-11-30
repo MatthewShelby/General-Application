@@ -84,7 +84,7 @@ export class SerductImage {      // add img alt="..." Later
 export enum ImageType {
       smaillThumbnail,       // 50*50
       largehumbnail,         // 75*75
-      card,                  // 255*255
+      card,                  // 255*255  -  220 * 280 would be great
       catalog,               // 640*640
       cover,                 // 400*1400
       full,                  // 700*1400
