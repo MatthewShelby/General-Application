@@ -3,9 +3,8 @@
 export class Serduct {
       constructor(
             public id: string,
-            // public owner: Company, // Cuoses Json loop
+            public owner: string,  // changed to string to avoid Json loop
             public serductType: SerductType,
-
       ) { }
 
       public title!: string;
@@ -14,7 +13,6 @@ export class Serduct {
       public shortDescription!: string;
       public longDescription!: string;
       public images!: SerductImage[];
-
 
 }
 
@@ -32,24 +30,26 @@ export enum SerductType {
 
 export class Company {
       constructor(
-            public id: string,
+            public id: string, 
+            public owner: string,
             public companyName: string,
             public companyContactInfo: ContactInfo[]
+
 
       ) { }
 
       public companyTitle!: string;
       public companyShortBio!: string;
       public companyLongBio!: string;
+      public profileImage!: SerductImage;
+      public logoImage!: SerductImage;
       public companySerducts!: Serduct[];
-
 }
 
 export class ContactInfo {
       constructor(
             public type: ContactInfoType,
             public value: string,
-            // public company: Company,
       ) { }
 }
 
@@ -77,7 +77,7 @@ export class SerductImage {      // add img alt="..." Later
             public id: string,
             public imageType: ImageType,
             public address: string,
-            // public serduct: Serduct
+            public altText: string
       ) { }
 }
 

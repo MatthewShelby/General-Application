@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Serduct, SerductImage, ImageType } from 'src/app/==== Lateral ====/DTO';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-
-import { MatCard } from '@angular/material/card';
+import { Router, RouterLink } from '@angular/router';
+import { Serduct, ImageType } from 'src/app/==== Lateral ====/DTO';
 import { GlobalConsts } from 'src/app/==== Lateral ====/Globals';
+import { SerductService } from '../-----Service/serduct.service';
 
 
 @Component({
@@ -18,13 +17,13 @@ export class SerductCardComponent implements OnInit {
   public cardImage: string = GlobalConsts.imageNotFoundAddress;
   @Input() serduct!: Serduct;
   constructor(
+    private servise: SerductService,
+    private router: Router
+  ) { }
 
-    //public model: Serduct,
-  ) {
-
-    console.log('Card Start');
-    //console.log('Card Data: ' + JSON.stringify(this.serduct));
-
+  transfer() {
+    this.servise.setActiveSerduct(this.serduct);
+    this.router.navigate(['detail']);
   }
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class SerductCardComponent implements OnInit {
     this.thumbnail = address1 ? address1 : this.thumbnail;
     this.cardImage = address2 ? address2 : this.cardImage;
   }
-  imgError(){
+  imgError() {
     this.thumbnail = "https://s20.picofile.com/file/8444360884/no_image_available.jpg";
 
   }

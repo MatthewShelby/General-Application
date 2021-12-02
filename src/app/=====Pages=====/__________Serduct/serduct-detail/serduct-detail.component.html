@@ -1,0 +1,238 @@
+<br>
+<br>
+<br>
+<br>
+
+<style>
+      .logo-test {
+            font-size: 5rem;
+            color: turquoise;
+      }
+
+      .main-row {
+            background-color: whitesmoke;
+      }
+
+      .logo-title {
+            color: rgb(37, 55, 219);
+
+      }
+
+      .holder-page {
+            width: 100%;
+            --bs-gutter-x: -1.5rem !important;
+      }
+
+      tr {
+            color: rgb(30, 102, 95);
+            font-size: 1rem;
+            font-weight: 500;
+      }
+
+      tr h3 {
+            color: rgb(30, 102, 95);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1rem;
+      }
+
+      .table-padding {
+            padding: 2rem;
+      }
+
+      .h1-title {
+            font-size: 3rem;
+            color: rgb(30, 102, 95);
+            font-weight: 300;
+            margin-top: 1rem;
+            line-height: 1.6;
+
+      }
+
+      .cat-image {
+            /* height: 432px;
+            width: 432px; */
+            width: 70%;
+            height: auto;
+      }
+      .comp-image {
+            /* height: 432px;
+            width: 432px; */
+            width: 100%;
+            height: auto;
+      }
+</style>
+<br>
+
+<div class="   holder-page   ">
+
+
+
+      <!-- #region header blue Logos-->
+
+
+      <div class="  d-flex justify-content-center">
+            <div class="  row  main-row col-10">
+                  <table class="col-4 d-flex justify-content-center table-padding">
+                        <th>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <span class="material-icons logo-test align-middle ">
+                                          currency_exchange
+                                    </span>
+                                    <br>
+                              </tr>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <h3>
+                                          Best Price!
+                                    </h3>
+                              </tr>
+                              <tr class=" d-flex justify-content-center">
+                                    <p>This produc/service has guranteed to be provided with the lowest price.</p>
+                              </tr>
+
+                        </th>
+                  </table>
+
+
+                  <table class="col-4 d-flex justify-content-center table-padding">
+                        <th>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <span class="material-icons logo-test align-middle ">
+                                          important_devices
+                                    </span>
+                                    <br>
+                              </tr>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <h3>
+                                          Best Price!
+                                    </h3>
+                              </tr>
+                              <tr class=" d-flex justify-content-center">
+                                    <p>This produc/service has guranteed to be provided with the lowest price.</p>
+                              </tr>
+
+                        </th>
+                  </table>
+
+
+                  <table class="col-4 d-flex justify-content-center table-padding">
+                        <th>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <span class="material-icons logo-test align-middle ">
+                                          support_agent
+                                    </span>
+                                    <br>
+                              </tr>
+
+                              <tr class=" d-flex justify-content-center">
+                                    <h3>
+                                          Best Price!
+                                    </h3>
+                              </tr>
+                              <tr class=" d-flex justify-content-center">
+                                    <p>This produc/service has guranteed to be provided with the lowest price.</p>
+                              </tr>
+
+                        </th>
+                  </table>
+
+
+
+
+
+            </div>
+
+      </div>
+      <!-- #endregion -->
+
+      <div class="  d-flex justify-content-center">
+            <div class="main-row col-10">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+            </div>
+      </div>
+
+      <div class="  d-flex justify-content-center">
+
+
+            <div class="d-flex justify-content-center col-10 main-row row">
+                  <br>
+                  <br>
+                  <br>
+                  <div class="row">
+                        <div class="col-12 col-sm-5 text-center">
+                              <h1 class="d-flex justify-content-center  h1-title">{{serduct.title}}</h1>
+                              <h3>Sub Title of product with some info</h3>
+                              <p>Long description about the product / service would be here. here may sould be a place
+                                    to let the user been able to edit the test. By edit i mean: Bold, Italic, font size,
+                                    font family, hyperlink and some other parameters
+                                    been editable in user panel.</p>
+                        </div>
+                        <div class="col-12 col-sm-7 text-center">
+                              <img [src]="mainCatalogImage" class="rounded cat-image" alt="product main image">
+                        </div>
+                  </div>
+
+
+                  <div class="  d-flex justify-content-center">
+                        <div class="main-row col-10">
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                        </div>
+                  </div>
+
+
+
+                  <div class="row">
+                        <div class="col-12 col-sm-4 text-center">
+                              <img [src]="CompanyProfileImage" class="rounded comp-image" alt="product main image">
+                        </div>
+                        <div class="col-12 col-sm-8 text-center">
+                              <h1 class="d-flex justify-content-center  h1-title">{{company.companyName}}</h1>
+                              <h3>{{company.companyTitle}}</h3>
+                              <p>{{company.companyShortBio}}</p>
+                              <p>{{company.companyLongBio}}</p>
+                              <div>
+                                    <ul> Other products:
+                                          <li *ngFor="let ser of company.companySerducts "> {{ser.title}}</li>
+                                    </ul>
+                              </div>
+                        </div>
+                        
+                  </div>
+
+                  <br>
+                  <br>
+                  <br>
+
+                  <h2>some info about company.</h2>
+                  <p>In
+                        publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+                        the
+                        visual
+                        form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used
+                        as a
+                        placeholder before the final copy isIn publishing and graphic design, Lorem ipsum is a
+                        placeholder
+                        text
+                        commonly used to demonstrate the visual form of a document or a typeface without relying on
+                        meaningful
+                        content. Lorem ipsum may be used as a placeholder before the final copy is
+                  </p>
+
+            </div>
+      </div>
+
+</div>

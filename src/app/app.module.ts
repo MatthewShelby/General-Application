@@ -13,13 +13,19 @@ import { SerductCardComponent } from './=====Pages=====/__________Serduct/serduc
 import { SerductService } from './=====Pages=====/__________Serduct/-----Service/serduct.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { SerductDetailComponent } from './=====Pages=====/__________Serduct/serduct-detail/serduct-detail.component';
+import { NewSerductComponent } from './=====Pages=====/__________Serduct/new-serduct/new-serduct.component';
+import { NewCompanyComponent } from './=====Pages=====/__________Serduct/new-company/new-company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BEUComponent,
     SerductComponent,
-    SerductCardComponent
+    SerductCardComponent,
+    SerductDetailComponent,
+    NewSerductComponent,
+    NewCompanyComponent
   ],
   imports: [
     BrowserModule,

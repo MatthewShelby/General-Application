@@ -1,11 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { map, noop, switchMap } from 'rxjs';
 import { Serduct } from 'src/app/==== Lateral ====/DTO';
 import { SerductService } from '../-----Service/serduct.service';
-// import Bootstrap from 'bootstrap/dist/js/Bootstrap/';git
 import { Carousel, } from "bootstrap";
-
+ 
 
 
 @Component({
@@ -34,7 +31,6 @@ export class SerductComponent implements AfterViewInit {
         pause: true,
         touch: true,
         keyboard: true
-
       }
       //    {
       //   slide: false,
@@ -65,7 +61,7 @@ export class SerductComponent implements AfterViewInit {
       this.check();
     }, 500);
   }
-  onKeydown(){
+  onKeydown() {
     this.nextSlide();
   }
   previousSlide() {

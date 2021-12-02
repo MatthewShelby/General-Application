@@ -6,7 +6,7 @@ describe('SerductCardComponent', () => {
   let component: SerductCardComponent;
   let fixture: ComponentFixture<SerductCardComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async () => { 
     await TestBed.configureTestingModule({
       declarations: [ SerductCardComponent ]
     })

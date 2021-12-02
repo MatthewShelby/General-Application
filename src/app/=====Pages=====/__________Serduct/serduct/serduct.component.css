@@ -2,7 +2,7 @@
       overflow: hidden;width: 960px;
 }
 
-#pad{
+#pad{ 
       background-color: rgb(255, 255, 255,0.7);
       padding: 20px;
       border-radius: 20px;
@@ -69,43 +69,4 @@
 
 
 
-#ser-rotate{
-      border: rgb(190, 186, 218) 6px solid !important;
-      transform: rotate(-90deg);
-      height: inherit;
-      width: inherit;
-      box-sizing: border-box;
 
-      /* margin: auto;
-      height: 1000px !important; 
-      width: 420px !important;
-      max-height: inherit;
-      transform: rotate(-90deg);
-      background-color: rgba(255,255,255,0.6);
-      margin: auto; */
-}
-
-#holder{
-
-      width: inherit;
-      height: inherit;
-      border: rgb(51, 48, 65) 6px solid !important;
-      box-sizing: border-box;
-
-      /*
-      height: 1200px !important; 
-      width: 750px !important;
-      max-width: inherit;
-      max-height: inherit;
-      overflow: auto;
-      border-radius: 5px;
-      margin: auto 
-*/
-}
-
-
-
-/* 
-    ::-webkit-scrollbar {
-      display: none;
-  } */
