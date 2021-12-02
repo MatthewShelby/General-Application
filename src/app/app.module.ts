@@ -41,3 +41,4 @@ import { NewCompanyComponent } from './=====Pages=====/__________Serduct/new-com
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// From phone
