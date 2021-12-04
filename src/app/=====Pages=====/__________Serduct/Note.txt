@@ -1,3 +1,8 @@
 From
 This moment for ward I should divide the full there's two 22 categories first one would be company and the second one would be services or products.
-The point is is these two should be please in different folders to have different origins and being implemented and inserted to the appmodule' from there ledgard origins
+The point is is these two should be please in different folders to have different origins and being implemented and inserted to the appmodule' from there ledgard origins.
+
+
+
+12/4/2021 9:24 LocalTime
+Devisions are ok but needed to be more clear at details and also transfer some methods between them to devide functionalities.
