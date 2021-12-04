@@ -75,7 +75,7 @@ export class SerductComponent implements AfterViewInit {
 
 
   ngOnInit(): void {
-    this.serducts = this.serductservice.GetSerducts();
+    // this.serducts = this.serductservice.GetSerducts();
     this.carouselCount = this.serducts.length - 1;
   }
 

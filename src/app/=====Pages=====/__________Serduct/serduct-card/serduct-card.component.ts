@@ -22,7 +22,7 @@ export class SerductCardComponent implements OnInit {
   ) { }
 
   transfer() {
-    this.servise.setActiveSerduct(this.serduct);
+    // this.servise.setActiveSerduct(this.serduct);
     this.router.navigate(['detail']);
   }
 

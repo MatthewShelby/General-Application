@@ -30,8 +30,8 @@ export enum SerductType {
 
 export class Company {
       constructor(
-            public id: string, 
-            public owner: string,
+            public id: string,
+            public owner: string | null,
             public companyName: string,
             public companyContactInfo: ContactInfo[]
 
@@ -41,13 +41,15 @@ export class Company {
       public companyTitle!: string;
       public companyShortBio!: string;
       public companyLongBio!: string;
-      public profileImage!: SerductImage;
-      public logoImage!: SerductImage;
+      public profileImage!: CompanyImage | null;
+      public logoImage!: CompanyImage | null;
       public companySerducts!: Serduct[];
 }
 
 export class ContactInfo {
       constructor(
+            public id: string,
+            public ownerId: string | null,
             public type: ContactInfoType,
             public value: string,
       ) { }
@@ -59,6 +61,7 @@ export enum ContactInfoType {
       country,
       city,
       address,
+      postalCode,
       phoneNumber,
       cellNumber,
       email,
@@ -80,7 +83,14 @@ export class SerductImage {      // add img alt="..." Later
             public altText: string
       ) { }
 }
-
+export class CompanyImage {      // add img alt="..." Later
+      constructor(
+            public id: string,
+            public imageType: ImageType,
+            public address: string,
+            public altText: string
+      ) { }
+}
 export enum ImageType {
       smaillThumbnail,       // 50*50
       largehumbnail,         // 75*75
@@ -92,3 +102,27 @@ export enum ImageType {
 
 
 //#endregion
+
+
+//#region ===== USER =====
+
+export class RegisterUser {
+      constructor(
+            public email: string,
+            public password: string,
+            public confirmPassword: string
+      ) { }
+}
+
+export class LoginUser {
+      constructor(
+            public email: string,
+            public password: string
+      ) { }
+}
+//#region 
+
+export interface JsonH {
+      status: string,
+      data: object
+}

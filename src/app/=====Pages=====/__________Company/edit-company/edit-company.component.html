@@ -1,0 +1,275 @@
+<br>
+<br>
+<br>
+<br>
+
+<style>
+      .logo-test {
+            font-size: 5rem;
+            color: turquoise;
+      }
+
+      .main-row {
+            background-color: whitesmoke;
+      }
+
+      .logo-title {
+            color: rgb(37, 55, 219);
+
+      }
+
+      .holder-page {
+            width: 100%;
+            --bs-gutter-x: -1.5rem !important;
+      }
+
+      tr {
+            color: rgb(30, 102, 95);
+            font-size: 1rem;
+            font-weight: 500;
+      }
+
+      tr h3 {
+            color: rgb(30, 102, 95);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1rem;
+      }
+
+      .table-padding {
+            padding: 2rem;
+      }
+
+      .h1-title {
+            font-size: 3rem;
+            color: rgb(30, 102, 95);
+            font-weight: 300;
+            margin-top: 1rem;
+            line-height: 1.6;
+
+      }
+
+      .cat-image {
+            /* height: 432px;
+            width: 432px; */
+            width: 70%;
+            height: auto;
+      }
+
+      .comp-image {
+            /* height: 432px;
+            width: 432px; */
+            width: 100%;
+            height: auto;
+      }
+
+      :host {
+            display: block;
+            /* flex-direction: column; */
+
+            align-items: flex-start;
+      }
+</style>
+<br>
+
+<div class="   holder-page   ">
+
+
+
+      <!-- #region header blue Logos-->
+
+
+
+      <!-- #endregion -->
+
+      <div class="  d-flex justify-content-center">
+            <div class="main-row col-10">
+                  <br>
+            </div>
+      </div>
+        
+
+      <div class="  d-flex justify-content-center">
+            <div class="d-flex justify-content-center col-10 main-row row">
+                  <div class="row">
+                        <div class="col-12 col-sm-12 d-flex justify-content-end">
+                              <div class="col-4 d-flex justify-content-end">
+                                    <button mat-raised-button color="accent"
+                                          (click)="RefreshCurrentCompany()">
+                                          <span class="material-icons">
+                                                refresh
+                                          </span>
+                                          Refresh</button>
+
+                              </div>
+                        </div>
+                        <mat-tab-group animationDuration="2000ms">
+                              <mat-tab label="Company Detail"> <br>
+
+                                   
+                                    <div class="col-12 col-sm-12 text-center">
+                                          <h1 class="d-flex justify-content-center  h1-title">{{company.companyName}}
+                                          </h1>
+                                          <h3>{{company.companyTitle}}</h3>
+                                          <p>{{company.companyShortBio}}</p>
+                                          <p>{{company.companyLongBio}}</p>
+                                          <div>
+                                                <!-- <ul> Other products:
+                                          <li *ngFor="let ser of company.companySerducts "> {{ser.title}}</li>
+                                    </ul> -->
+                                                <ul> Other products:
+                                                      <li *ngFor="let ser of company.companyContactInfo "> {{
+                                                            GetStringType(ser) }} : {{ser.value}}</li>
+                                                </ul>
+                                          </div>
+                                    </div>
+                              </mat-tab>
+
+
+                              <mat-tab label="Edit Detail">
+                                    <form class="example-form" [formGroup]="registerForm"
+                                          (keydown.enter)="$event.preventDefault()">
+
+                                          <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>User (disabled)</mat-label>
+                                                <input matInput disabled value="Registered User Name">
+                                          </mat-form-field>
+                                          <br>
+                                          <hr>
+                                          <br>
+
+                                          <table class="example-full-width" cellspacing="0">
+                                                <tr>
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company name</mat-label>
+                                                            <input matInput placeholder="Company Name"
+                                                                  formControlName="companyName">
+                                                      </mat-form-field>
+                                                </tr>
+                                                <tr>
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company main phone number</mat-label>
+                                                            <span matPrefix>+ &nbsp;</span>
+                                                            <input type="tel" matInput placeholder="98-21-55544412"
+                                                                  formControlName="phoneNumber">
+                                                            <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+                                                      </mat-form-field>
+                                                </tr>
+
+                                          </table>
+                                          <br>
+
+                                          <table class="example-full-width" cellspacing="0">
+                                                <tr>
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Address</mat-label>
+                                                            <textarea matInput placeholder="Ex. 100 Main St"
+                                                                  formControlName="address"></textarea>
+                                                      </mat-form-field>
+                                                </tr>
+                                                <tr>
+                                                      <td>
+                                                            <mat-form-field class="example-full-width"
+                                                                  appearance="fill">
+                                                                  <mat-label>City</mat-label>
+                                                                  <input matInput placeholder="Ex. San Francisco"
+                                                                        formControlName="city">
+                                                            </mat-form-field>
+                                                      </td>
+                                                      <td>
+                                                            <mat-form-field class="example-full-width"
+                                                                  appearance="fill">
+                                                                  <mat-label>Country</mat-label>
+                                                                  <input matInput placeholder="Ex. Canada"
+                                                                        formControlName="country">
+                                                            </mat-form-field>
+                                                      </td>
+                                                      <td>
+                                                            <mat-form-field class="example-full-width"
+                                                                  appearance="fill">
+                                                                  <mat-label>Postal Code</mat-label>
+                                                                  <input matInput placeholder="Ex. 94105"
+                                                                        formControlName="postalCode">
+                                                                  <!-- <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint> -->
+                                                            </mat-form-field>
+                                                      </td>
+                                                </tr>
+                                          </table>
+                                          <br>
+                                          <table class=" col-12" cellspacing="0">
+                                                <tr>
+                                                      <mat-form-field class="example-full-width col-6"
+                                                            appearance="fill">
+                                                            <mat-label>Company Title</mat-label>
+                                                            <input matInput class=" col-12"
+                                                                  formControlName="companyTitle">
+                                                            <mat-hint align="start"><strong>Ex. International computer
+                                                                        part shipping...</strong>
+                                                            </mat-hint>
+
+
+                                                      </mat-form-field>
+                                                </tr>
+                                                <br>
+                                                <tr class="col-12">
+                                                      <mat-form-field class="example-full-width  col-12"
+                                                            appearance="fill">
+                                                            <mat-label>Short bio:</mat-label>
+                                                            <textarea matInput #message maxlength="256"
+                                                                  style="height: 100px; resize: none"
+                                                                  formControlName="shortBio"></textarea>
+
+                                                            <mat-hint align="start"><strong>Don't disclose personal
+                                                                        info</strong> </mat-hint>
+                                                                        
+                                                            <mat-hint align="end">{{message.value.length}} / 256
+                                                            </mat-hint>
+                                                      </mat-form-field>
+                                                </tr>
+                                                <br>
+                                                <tr class="col-12">
+                                                      <mat-form-field class="example-full-width  col-12"
+                                                            appearance="fill">
+                                                            <mat-label>Long bio:</mat-label>
+                                                            <textarea matInput #message maxlength="2001"
+                                                                  style="height: 200px;; resize: none"
+                                                                  formControlName="longBio"
+                                                                  
+                                                                  ></textarea>
+
+
+                                                            <mat-hint align="start"><strong>Don't disclose personal
+                                                                        info</strong> </mat-hint>
+                                                            <mat-hint align="end">{{message.value.length}} / 2000
+                                                            </mat-hint>
+                                                      </mat-form-field>
+                                                </tr>
+                                                <br>
+
+                                                <br>
+                                                <br>
+                                                <br>
+                                          </table>
+
+                                          <button mat-raised-button color="primary" (click)="ngSubmit()"
+                                                [disabled]="!registerForm.valid">Submit</button>
+
+
+                                    </form>
+                              </mat-tab>
+
+
+
+                              <mat-tab label="Third">Upload Image</mat-tab>
+                        </mat-tab-group>
+
+
+
+
+
+                  </div>
+
+            </div>
+      </div>
+
+</div>

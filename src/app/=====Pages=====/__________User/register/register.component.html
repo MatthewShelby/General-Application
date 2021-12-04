@@ -1,0 +1,77 @@
+
+
+<div id="main">
+      <span id="titlespan">
+            <p id="title">Register</p>
+      </span>
+
+      <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()" class="form form-inline form-contact">
+
+            <p style="margin-top: 0px; margin-bottom: 0px;">
+                  <mat-form-field appearance="standard">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="email" type="email">
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-hint>Like: example@gmail.com</mat-hint>
+                  </mat-form-field>
+            </p>
+            <p style="margin-top: 0px; margin-bottom: 0px;">
+                  <mat-form-field appearance="standard">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Placeholder" type="password" formControlName="password">
+                        <mat-icon matSuffix>key</mat-icon>
+                        <!-- <mat-hint>Hint</mat-hint> -->
+                  </mat-form-field>
+            </p>
+            <p style="margin-top: 0px; margin-bottom: 0px;">
+                  <mat-form-field appearance="standard" style="margin-top: 0px;">
+                        <mat-label style="margin-top: 0px;">Confirm Password</mat-label>
+                        <input matInput placeholder="Placeholder" style="margin-top: 0px;" type="password"
+                              formControlName="confirmPassword">
+                        <mat-icon matSuffix>key</mat-icon>
+                        <!-- <mat-hint>Hint</mat-hint> -->
+                  </mat-form-field>
+            </p>
+      </form>
+
+      <br>
+
+      <div id="signinkeyspan">
+            <br>
+
+            <button mat-raised-button color="primary" style="width: 90%;" (click)="ngSubmit()">
+                  <mat-icon matSuffix> login</mat-icon>
+                  Register
+            </button>
+            <br>
+            <br>
+
+
+
+            <div style="white-space:nowrap;">
+
+                  <button routerLink="" mat-stroked-button style="padding-right: 1rem;padding-left: 0px;">
+                        <span class="material-icons"> chevron_left </span>
+                        Back
+                  </button>
+                  &nbsp;
+                  &nbsp;
+
+                  <button routerLink="/signin" mat-stroked-button color="accent">Sign in</button>
+                  <br>
+                  <br>
+                  <button disabled mat-button color="primary" style="text-decoration: underline;">Forgot Password
+                  </button>
+            </div>
+      </div>
+
+      <br>
+
+
+
+
+
+
+
+</div>
+
