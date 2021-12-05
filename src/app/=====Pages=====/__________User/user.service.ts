@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { BehaviorSubject, lastValueFrom, Observable, timeout } from 'rxjs';
-import { JsonH, LoginUser, RegisterUser } from 'src/app/==== Lateral ====/DTO';
+import { Company, JsonH, LoginUser, RegisterUser, fetchCompany } from 'src/app/==== Lateral ====/DTO';
 
 @Injectable({
   providedIn: 'root'
@@ -29,14 +29,14 @@ export class UserService {
 
   public loginUser(model: LoginUser) {
     lastValueFrom(this.http.post<JsonH>('account/login-user', model).pipe(
-      timeout(5000)
+      timeout(10000)
     )).then(res => {
 
       if (res.status === 'Succeed.') {
         console.log('login is ok. res.data: ' + res.data)
-        this.cookie.put('CU',res.data.toString())
+        this.cookie.put('CU', res.data.toString())
         this.loginResult.next(true);
-      }else{
+      } else {
         console.log('login error: ' + res.data)
         console.log('login Failed');
         this.loginError.next(JSON.stringify(res.data));
@@ -59,31 +59,39 @@ export class UserService {
   //#region  ===== REGISTER  =====
 
   private retVal = new BehaviorSubject(false);
+  private registerError = new BehaviorSubject('');
 
   GetRegisterResult(): boolean {
     return this.retVal.value;
   }
+  GetRegisterResultError(): string {
+    return this.registerError.value;
+  }
 
   public registerUser(model: RegisterUser) {
     lastValueFrom(this.http.post<JsonH>('account/register-user', model).pipe(
-      timeout(5000)
+      timeout(10000)
     )).then(res => {
-      console.log('regiter is ok. res.data: ' + res.data)
-      this.retVal.next(true);
-      return new BehaviorSubject(true);
-    }).catch(res => {
-      console.log('register error: ' + res.data)
-      console.log('regiter Failed')
-      this.retVal.next(false);
-      return new BehaviorSubject(false);
-    })
+      if (res.status === 'Succeed.') {
+        console.log('regiter is ok. res.data: ' + res.data)
+        this.retVal.next(true);
+        this.retVal.next(true);
+      } else {
+        console.log('register error: ' + res.data)
+        this.retVal.next(false);
+        this.registerError.next(res.data.toString());
+        // this.registerError.next(JSON.stringify(res.data));
+      }
+    }).catch(err => {
 
-    console.log('moment before return :' + this.retVal.value)
+      console.log('regiter Failed; err: ' + err)
+      this.retVal.next(false);
+      this.registerError.next(err);
+
+    })
   }
 
   //#endregion
-
-
 
 
 }

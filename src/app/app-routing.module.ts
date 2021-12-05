@@ -7,6 +7,7 @@ import { SerductComponent } from './=====Pages=====/__________Serduct/serduct/se
 import { EditCompanyComponent } from './=====Pages=====/__________Company/edit-company/edit-company.component';
 import { LoginComponent } from './=====Pages=====/__________User/login/login.component';
 import { RegisterComponent } from './=====Pages=====/__________User/register/register.component';
+import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/user-panel.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'ccee', component: EditCompanyComponent },
   { path: 'signin', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'userPanel', component: UserPanelComponent },
   { path: 'detail', component: SerductDetailComponent, data: { serductInput: 'Isert a serduct' } },
   // { path: 'user-home', component: HomeComponent ,  canActivate:[AuthGuard]},
 ];

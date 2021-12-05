@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LoginComponent,
     // MatDialogModule,
     DialogDataExample,
+    UserPanelComponent,
   ],
   imports: [
     BrowserModule,

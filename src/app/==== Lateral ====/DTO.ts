@@ -69,6 +69,12 @@ export enum ContactInfoType {
       socialNetwork
 }
 
+
+export interface fetchCompany{
+      status: string,
+      data: Company
+}
+
 //#endregion
 
 

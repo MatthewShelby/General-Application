@@ -33,24 +33,7 @@ export class NewCompanyComponent implements OnInit {
 
 
 
-    this.companyService.GetST().subscribe(str => {
-      if (str.length == 0) {
-        this.companyService.GetSS().subscribe(res => {
-          console.log('from New: ' + res.status)
-          if (res.status == "Succeed.") {
-            this.companyService.SetST(JSON.stringify(res.data));
-            // this.sliderService.SetCurrentSliders(res.data);
-          }
-        })
-      }
-      else {
-        // this.sliders = sliders;
-        // setInterval(() => {
-        //   homeSlider();
-
-        // }, 100);
-      }
-    });
+     
 
 
 

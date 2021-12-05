@@ -141,12 +141,12 @@ export class EditCompanyComponent implements OnInit {
   }
 
   RefreshCurrentCompany(): Company {
-    console.log('send get for id: ')
-    this.companyService.GetCompany('e4f5ffb6-2e06-4b77-bece-82cdb581e154').subscribe(res => {
-      this.company = res;
-      this.cookie.put('CurrentCompany', JSON.stringify(res));
-      console.info(res)
-    });
+    // console.log('send get for id: ')
+    // this.companyService.GetCompany('e4f5ffb6-2e06-4b77-bece-82cdb581e154').subscribe(res => {
+    //   this.company = res;
+    //   this.cookie.put('CurrentCompany', JSON.stringify(res));
+    //   console.info(res)
+    // });
     return this.company;
   }
 

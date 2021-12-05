@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   ngSubmit() {
 
-this.loading = true;
+    this.loading = true;
     var loginUser = new LoginUser(
       this.registerForm.controls['email'].value,
       this.registerForm.controls['password'].value,
@@ -60,15 +60,15 @@ this.loading = true;
       var send = this.userService.GetLoginResult();
       if (send) {
         console.log('login OK.')
-        //this.router.navigate(['./userPanel']);
+        this.router.navigate(['./userPanel']);
       } else {
         console.log('register Fail.')
         var er = this.userService.GetLoginError();
         this.openSnackBar(er);
       }
-this.loading = false;
+      this.loading = false;
 
-    }, 6500)
+    }, 1000)
 
 
 

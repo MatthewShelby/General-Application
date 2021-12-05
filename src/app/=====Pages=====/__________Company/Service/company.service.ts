@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, lastValueFrom, Observable, timeout, pipe, Subscription } from 'rxjs';
-import { Company, JsonH, } from 'src/app/==== Lateral ====/DTO';
+import { Company, fetchCompany, JsonH, } from 'src/app/==== Lateral ====/DTO';
 
 @Injectable({
   providedIn: 'root'
@@ -13,67 +13,33 @@ export class CompanyService {
     private http: HttpClient
 
   ) { }
-  public  homeString: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public homeString: BehaviorSubject<string> = new BehaviorSubject<string>('');
+
   
-  public GetSS(): Observable<JsonH> {
-    return this.http.get<JsonH>("companies/get-test");
+  //#region ===== FETCH MY COMPANY =====
+
+  private company = new BehaviorSubject<Company>(new Company('', null, '', []));
+
+  fetchCompany() {
+    this.http.get<fetchCompany>('companies/get-my-company').subscribe(res => {
+      if (res.status == 'Succeed.') {
+        this.company.next(res.data)
+      }
+    })
   }
-  public GetST(): Observable<string> {
-    return this.homeString;
-  }
 
-  public SetST(STR: string) {
-    this.homeString.next(STR);
-  }
-
-
-
-
-
-  GetTestNew() {
-
-    this.http.get('companies/get-test').subscribe(res => {
-      console.log('Get Test New: ' + JSON.stringify(res))
-    } )
+  getMyCompany(): Company {
+    return this.company.value;
   }
 
 
-
-  GetCompany(id: string) {
-    return this.http.get<Company>('serducts/get-company/' + id);
-  }
-
-  IsConnected() {
-    console.log('IsConnected call');
-    this.http.get<boolean>("/api/account/isConnected").subscribe(res => {
-      this.isConnected.next(res);
-    }
-    )
-  }
-
-  GetTest(): BehaviorSubject<string> {
-    console.log('GetTest()')
+  //#endregion
 
 
 
-    let retu = '';
-    lastValueFrom(this.http.get('serducts/test', { responseType: 'text' as 'json' }).pipe(
-      timeout(5000)
-    )).then(res => {
-      console.info(res);
-      console.log('Succeed.')
 
-      retu = 'Succeed.';
 
-    }).catch(res => {
-      console.log('errrror')
-      console.info(res);
-      retu = 'error.';
-    }
-    )
-    return new BehaviorSubject<string>(retu);
-  }
-
+  
   putCompany(id: string, company: Company): Observable<Company> {
     return this.http.put<Company>('serducts/edit-company/' + id, company);
 

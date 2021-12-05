@@ -13,6 +13,7 @@ import { lastValueFrom, pipe, timeout } from 'rxjs';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  loading = false;
   public registerForm!: FormGroup;
   constructor(
     private userService: UserService,
@@ -44,6 +45,7 @@ export class RegisterComponent implements OnInit {
 
 
   ngSubmit() {
+    this.loading = true;
     var regsterUser = new RegisterUser(
       this.registerForm.controls['email'].value,
       this.registerForm.controls['password'].value,
@@ -57,22 +59,24 @@ export class RegisterComponent implements OnInit {
       var send = this.userService.GetRegisterResult();
       if (send) {
         console.log('register OK.')
-        this.dialog.datapack = new DataPackage(' ',
-          'Your Account has been registered',
-          'Please check your email and click the link to activate your account');
+        this.dialog.datapack = new DataPackage('Your Account has been registered ',
+          'Please check your email and click the link to activate your account', '');
         this.dialog.openDialog();
         this.router.navigate(['./signin']);
       } else {
         console.log('register Fail.')
-        this.dialog.datapack = new DataPackage(' ',
-          'Your registeration request has been rejected',
-          'Please check your information and try later.');
+        var Error: string = this.userService.GetRegisterResultError();
+        this.dialog.datapack = new DataPackage('Your registeration request has been rejected. ',
+          'Please check your information and try later.',
+          'Error: ' + Error + '  ');
         this.dialog.openDialog();
         //this.router.navigate(['./signin']);
       }
-    }, 6500)
+      this.loading = false;
+    
+    }, 1000)
 
- 
+
 
   }
 }

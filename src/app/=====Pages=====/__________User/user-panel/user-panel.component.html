@@ -1,0 +1,43 @@
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="col-12 col-sm-12 text-center  row">
+      <div class="col-1"></div>
+      <div class="col-10 col-sm-12 text-center" style="width: 90%; background-color: white ;">
+            <div id="dimScreen" *ngIf="loading" class="d-flex  justify-content-center">
+                  <div style="height: 100%;   display:flex;
+            align-items:center;" class=" ">
+                        <div class=" " style="margin: 30px;">
+                              <mat-spinner></mat-spinner>
+                        </div>
+                  </div>
+            </div>
+
+            <div *ngIf="!loading && hasCompany">
+                  <h1 class="d-flex justify-content-center  h1-title">{{company.companyName}}
+                  </h1>
+                  <h3>{{company.companyTitle}}</h3>
+                  <p>{{company.companyShortBio}}</p>
+                  <p>{{company.companyLongBio}}</p>
+                  <div>
+                        <!-- <ul> Other products:
+                                          <li *ngFor="let ser of company.companySerducts "> {{ser.title}}</li>
+                                    </ul> -->
+                        <ul> Other products:
+                              <li *ngFor="let ser of company.companyContactInfo "> {{
+                                    GetStringType(ser) }} : {{ser.value}}</li>
+                        </ul>
+                  </div>
+            </div>
+            <div *ngIf="!loading && !hasCompany">
+                  <h1> You havn't register any company yet.</h1>
+            </div>
+      </div>
+
+</div>
