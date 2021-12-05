@@ -6,3 +6,7 @@ The point is is these two should be please in different folders to have differen
 
 12/4/2021 9:24 LocalTime
 Devisions are ok but needed to be more clear at details and also transfer some methods between them to devide functionalities.
+
+
+Mory:
+consider it done.
