@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RegisterUser } from 'src/app/==== Lateral ====/DTO';
 import { DataPackage, DialogDataExample } from 'src/app/===== Material =====/Dialog/dialog';
 import { UserService } from '../user.service';
+import { lastValueFrom, pipe, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -14,12 +15,12 @@ import { UserService } from '../user.service';
 export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
   constructor(
-    private userService : UserService,
-    private router:Router,
+    private userService: UserService,
+    private router: Router,
     private dialog: DialogDataExample
   ) { }
 
-  
+
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       'email': new FormControl(null, [
@@ -40,24 +41,38 @@ export class RegisterComponent implements OnInit {
 
     })
   }
-  
 
-  ngSubmit(){
+
+  ngSubmit() {
     var regsterUser = new RegisterUser(
       this.registerForm.controls['email'].value,
       this.registerForm.controls['password'].value,
       this.registerForm.controls['confirmPassword'].value
     )
-  
-    var send : boolean = this.userService.registerUser(regsterUser);
 
-    if (send) {
+
+    this.userService.registerUser(regsterUser);
+
+    setTimeout(() => {
+      var send = this.userService.GetRegisterResult();
+      if (send) {
+        console.log('register OK.')
         this.dialog.datapack = new DataPackage(' ',
-        'Your Account has registered',
-        'Please check your email and click the link to activate your account');
+          'Your Account has been registered',
+          'Please check your email and click the link to activate your account');
         this.dialog.openDialog();
         this.router.navigate(['./signin']);
-    }
+      } else {
+        console.log('register Fail.')
+        this.dialog.datapack = new DataPackage(' ',
+          'Your registeration request has been rejected',
+          'Please check your information and try later.');
+        this.dialog.openDialog();
+        //this.router.navigate(['./signin']);
+      }
+    }, 6500)
+
+ 
 
   }
 }

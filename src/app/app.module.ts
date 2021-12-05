@@ -31,6 +31,9 @@ import { LoginComponent } from './=====Pages=====/__________User/login/login.com
 import { UserService } from './=====Pages=====/__________User/user.service';
 import { DataPackage,  DialogDataExample, DIALOG_CONTENT, DIALOG_HEAD, DIALOG_TITLE ,  } from './===== Material =====/Dialog/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CookieModule.forRoot(),
     MatTabsModule,
     MatDialogModule,
-    // DialogDataExample,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     CommonModule,

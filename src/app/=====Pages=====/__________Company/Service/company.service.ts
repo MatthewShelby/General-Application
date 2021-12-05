@@ -14,6 +14,7 @@ export class CompanyService {
 
   ) { }
   public  homeString: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  
   public GetSS(): Observable<JsonH> {
     return this.http.get<JsonH>("companies/get-test");
   }

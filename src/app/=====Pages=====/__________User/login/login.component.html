@@ -1,1 +1,71 @@
-<p>login works!</p>
+<div id="main">
+      <span id="titlespan">
+            <p id="title">SIGN IN </p>
+      </span>
+
+
+      <form [formGroup]="registerForm" (ngSubmit)="ngSubmit()" class="form form-inline form-contact">
+
+            <p>
+                  <mat-form-field appearance="standard">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="email" type="email">
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-hint>Like: example@gmail.com</mat-hint>
+                  </mat-form-field>
+            </p>
+            <p>
+                  <mat-form-field appearance="standard">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Placeholder" type="password" formControlName="password">
+                        <mat-icon matSuffix>key</mat-icon>
+                  </mat-form-field>
+            </p>
+      </form>
+
+
+
+      <div id="signinkeyspan">
+            <br>
+
+            <!-- <button mat-raised-button color="primary" style="width: 90%;"
+            (click)="ngSubmit()" [disabled]="registerForm.invalid"> -->
+            <button mat-raised-button color="primary" style="width: 90%;" (click)="ngSubmit()">
+                  <mat-icon matSuffix> login</mat-icon>
+
+                  Sign in
+            </button>
+
+
+            <br>
+            <br>
+
+
+
+            <button routerLink="" mat-stroked-button style="padding-right: 1rem;padding-left: 0px;">
+                  <span class="material-icons"> chevron_left </span>
+                  Back
+            </button>
+            &nbsp;
+            &nbsp;
+            <button routerLink="/register" mat-stroked-button color="accent">Register</button>
+            <br>
+            <br>
+            <button disabled mat-button color="primary" style="text-decoration: underline;">Forgot Password </button>
+
+      </div>
+
+      <br>
+
+
+      <div id="dimScreen" *ngIf="loading" class="d-flex  justify-content-center">
+            <div style="height: 100%;   display:flex;
+            align-items:center;" class=" ">
+                  <div  class=" "  ><mat-spinner></mat-spinner></div>
+            </div>
+      </div>
+
+
+
+
+</div>

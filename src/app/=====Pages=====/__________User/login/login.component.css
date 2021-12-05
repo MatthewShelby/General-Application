@@ -1,0 +1,42 @@
+#main{
+      width: 50%;
+      margin: auto;
+}
+
+#titlespan{
+      text-align: center;
+      width: 100%;
+      margin: 1rem;
+}
+#title{
+      margin-top: 0.5rem;
+      position: relative;
+      align-self: center;
+      font-size: 2rem; 
+      font-weight: 700;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+#signinkeyspan{
+      text-align: center;
+      width: 100%;
+}
+
+:host {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #dimScreen
+{
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.65);
+}
