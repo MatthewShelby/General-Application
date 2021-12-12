@@ -13,3 +13,5 @@ consider it done.
 
 
 till this point, Services been divided into three parts. user service. company service and serduct service
+
+COmpanyService has some duplicate unoptimized methods. must be refactor.
