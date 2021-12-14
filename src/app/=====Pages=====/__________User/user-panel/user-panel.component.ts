@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Company, ContactInfo, ContactInfoType } from 'src/app/==== Lateral ====/DTO';
+import { catchError, scheduled, throwError, timeout, TimeoutError } from 'rxjs';
+import { Company, ContactInfo, ContactInfoType, fetchCompany } from 'src/app/==== Lateral ====/DTO';
+import { GlobalConsts } from 'src/app/==== Lateral ====/Globals';
 import { CompanyService } from '../../__________Company/Service/company.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { CompanyService } from '../../__________Company/Service/company.service'
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
+  public CompanyProfileImage = GlobalConsts.imageNotFoundAddress;
+  public CompanyLogoImage = GlobalConsts.imageNotFoundAddress;
   public hasCompany = false;
   loading = true;
 
@@ -16,24 +19,27 @@ export class UserPanelComponent implements OnInit {
 
   constructor(
     private companyService: CompanyService
-  ) {
-    //this.company = this.companyService.getMyCompany();
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.CompanyProfileImage = GlobalConsts.imageNotFoundAddress;
+    this.CompanyLogoImage = GlobalConsts.imageNotFoundAddress;
+    setTimeout(()=>{
 
-    let tempCompany = this.companyService.getMyCompany();
-    setTimeout(() => {
-
-      if (tempCompany.owner != null) {
+    },4000)
+    this.companyService.getMyCompanyCall().pipe(timeout(4000),
+    ).subscribe(res => {
+      if (res.status == 'Succeed.') {
         this.hasCompany = true;
-        this.company = tempCompany;
+        this.company = res.data
       }
-      console.log('end loa');
-      this.loading = false;
+      this.loading = false
+    }
+    )
 
-    }, 4000)
   }
+
+  
   GetStringType(index: ContactInfo): string {
     return ContactInfoType[index.type].toString()
   }

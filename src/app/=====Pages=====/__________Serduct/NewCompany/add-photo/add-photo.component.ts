@@ -16,27 +16,33 @@ export class AddPhotoComponent implements OnInit {
   selectedFiles?: FileList;
   currentFile?: File;
   progress = 0;
-  public message :string = '';
+  public message: string = '';
 
   fileInfos?: Observable<any>;
-  constructor( 
+  constructor(
     private serductService: SerductService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    this.fileInfos = this.serductService.getFiles();
+    // this.fileInfos = this.serductService.getFiles();
 
   }
 
 
 
-  
+
   //#region =====  FILE  =====  
+  
+    selectFile(event: any): void {
+      this.selectedFiles = event.target.files;
+    }
 
-  selectFile(event: any): void {
-    this.selectedFiles = event.target.files;
-  }
+
+
   public check: boolean = false;
+
+
+  /*
   upload(): void {
     this.check = false;
     this.progress = 0;
@@ -53,7 +59,7 @@ export class AddPhotoComponent implements OnInit {
           this.check = true
         } else {
           console.log('File type must be jpeg or png.')
-        this.error = ' File type must be jpeg or png. ';
+          this.error = ' File type must be jpeg or png. ';
 
         }
       }
@@ -91,7 +97,7 @@ export class AddPhotoComponent implements OnInit {
     }
   }
 
-
+*/
 
   //#endregion
 }

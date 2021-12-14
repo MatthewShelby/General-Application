@@ -1,12 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { map, Observable, pipe, Subscriber, Subscription, } from 'rxjs';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { SerductService } from '../-----Service/serduct.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Company, ContactInfo, ContactInfoType } from 'src/app/==== Lateral ====/DTO';
 import { CookieService } from 'ngx-cookie';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CompanyService } from '../../__________Company/Service/company.service';
 
 
@@ -19,27 +16,13 @@ export class NewCompanyComponent implements OnInit {
   public registerForm!: FormGroup;
   public ST: string = '';
   constructor(
-    private serductService: SerductService,
     private companyService: CompanyService,
-    private cookie: CookieService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
 
-    this.companyService.homeString.subscribe(res => {
-      this.ST = res
-    })
-
-
-
-     
-
-
-
-
-
-
+    // ===  Instantiate the company register form
     this.registerForm = new FormGroup({
       'companyName': new FormControl(null, [
         Validators.required,
@@ -90,16 +73,16 @@ export class NewCompanyComponent implements OnInit {
       ])
     })
 
-
   }
 
 
   ngSubmit() {
     console.log('submit button pushed.')
 
-    //#region Init model
+    //#region Init model  
+
     let contact = new ContactInfo('null', 'null', ContactInfoType.phoneNumber, this.registerForm.controls['phoneNumber'].value)
-    let model = new Company('null', null,
+    let model = new Company('null', 'null',
       this.registerForm.controls['companyName'].value,
       [contact]);
     model.companyLongBio = this.registerForm.controls['longBio'].value;
@@ -118,26 +101,20 @@ export class NewCompanyComponent implements OnInit {
     let postalCode = new ContactInfo('null', 'null', ContactInfoType.postalCode,
       this.registerForm.controls['postalCode'].value)
 
-    model.companyContactInfo.push(address)
-    model.companyContactInfo.push(city)
-    model.companyContactInfo.push(country)
-    model.companyContactInfo.push(postalCode)
+    model.contactInfos.push(address)
+    model.contactInfos.push(city)
+    model.contactInfos.push(country)
+    model.contactInfos.push(postalCode)
     model.profileImage = null;
     model.logoImage = null;
     model.companySerducts = [];
     //#endregion
-
-    var s = this.serductService.postNewCompany(model).subscribe(res => {
-      console.log('ngSubmit res:   ' + res)
-      if (res.id == 'null' || res.id == 'Null') {
-
-      } else {
-        this.cookie.put('CurrentCompany', JSON.stringify(res));
-        this.router.navigate(['ser']);
+    this.companyService.postCompany(model).subscribe(res => {
+      if (res.id.length > 5) {
+        console.log('post is ok.')
+        this.router.navigate(['userPanel']);
       }
-
     });
-
 
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewCompanyComponent } from './=====Pages=====/__________Serduct/new-company/new-company.component';
+import { NewCompanyComponent } from './=====Pages=====/__________Company/new-company/new-company.component';
 import { NewSerductComponent } from './=====Pages=====/__________Serduct/new-serduct/new-serduct.component';
 import { SerductDetailComponent } from './=====Pages=====/__________Serduct/serduct-detail/serduct-detail.component';
 import { SerductComponent } from './=====Pages=====/__________Serduct/serduct/serduct.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'ser', component: SerductComponent },
   { path: 'newS', component: NewSerductComponent },
   { path: 'newC', component: NewCompanyComponent },
-  { path: 'ccee', component: EditCompanyComponent },
+  { path: 'edit-company', component: EditCompanyComponent },
   { path: 'signin', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'userPanel', component: UserPanelComponent },

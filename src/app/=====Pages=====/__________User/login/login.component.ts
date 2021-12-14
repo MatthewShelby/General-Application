@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie';
+import { Subscription } from 'rxjs';
 import { LoginUser } from 'src/app/==== Lateral ====/DTO';
 import { UserService } from '../user.service';
 
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  private userSub = new Subscription;
 
   ngSubmit() {
 
@@ -54,11 +56,8 @@ export class LoginComponent implements OnInit {
       this.registerForm.controls['password'].value,
     )
 
-    this.userService.loginUser(loginUser);
-
-    setTimeout(() => {
-      var send = this.userService.GetLoginResult();
-      if (send) {
+    this.userSub = this.userService.loginUser3(loginUser).subscribe(res => {
+      if (res) {
         console.log('login OK.')
         this.router.navigate(['./userPanel']);
       } else {
@@ -68,8 +67,23 @@ export class LoginComponent implements OnInit {
       }
       this.loading = false;
 
-    }, 1000)
-
+    });
+    /*
+        setTimeout(() => {
+          var send = this.userService.GetLoginResult();
+          if (send) {
+            console.log('login OK.')
+            this.router.navigate(['./userPanel']);
+          } else {
+            console.log('register Fail.')
+            var er = this.userService.GetLoginError();
+            this.openSnackBar(er);
+          }
+          this.loading = false;
+          
+    
+        }, 500)
+    */
 
 
   }

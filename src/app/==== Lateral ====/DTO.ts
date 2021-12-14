@@ -31,9 +31,9 @@ export enum SerductType {
 export class Company {
       constructor(
             public id: string,
-            public owner: string | null,
+            public ownerId: string | null,
             public companyName: string,
-            public companyContactInfo: ContactInfo[]
+            public contactInfos: ContactInfo[]
 
 
       ) { }
@@ -126,7 +126,8 @@ export class LoginUser {
             public password: string
       ) { }
 }
-//#region 
+
+//#endregion 
 
 export interface JsonH {
       status: string,

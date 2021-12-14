@@ -1,0 +1,77 @@
+
+
+
+ .logo-test {
+      font-size: 5rem;
+      color: turquoise;
+}
+
+.main-row {
+      background-color: whitesmoke;
+      border-radius: 10px;
+}
+
+.logo-title {
+      color: rgb(37, 55, 219);
+
+}
+
+.holder-page {
+      width: 100%;
+      --bs-gutter-x: -1.5rem !important;
+}
+
+tr {
+      color: rgb(30, 102, 95);
+      font-size: 1rem;
+      font-weight: 500;
+}
+
+tr h3 {
+      color: rgb(30, 102, 95);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 1rem;
+}
+
+.table-padding {
+      padding: 2rem;
+}
+
+.h1-title {
+      font-size: 3rem;
+      color: rgb(30, 102, 95);
+      font-weight: 300;
+      margin-top: 1rem;
+      line-height: 1.6;
+
+}
+
+.cat-image {
+      width: 70%;
+      height: auto;
+}
+
+.comp-image {
+      width: 100%;
+      height: auto;
+}
+
+#profile-image{
+      width: 50%;
+      margin:auto
+}
+
+#logo-image{
+      width: 50%;
+      margin:auto
+}
+
+.toolbox{
+      /* margin : 1rem; */
+      padding: 1rem;
+}
+
+.toolbox-btn{
+      margin-left: 1rem;
+}

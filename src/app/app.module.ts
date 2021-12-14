@@ -15,7 +15,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { SerductDetailComponent } from './=====Pages=====/__________Serduct/serduct-detail/serduct-detail.component';
 import { NewSerductComponent } from './=====Pages=====/__________Serduct/new-serduct/new-serduct.component';
-import { NewCompanyComponent } from './=====Pages=====/__________Serduct/new-company/new-company.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/user-panel.component';
+import { NewCompanyComponent } from './=====Pages=====/__________Company/new-company/new-company.component';
 
 @NgModule({
   declarations: [

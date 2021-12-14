@@ -1,43 +1,88 @@
 <br>
 <br>
-
 <br>
 <br>
-<br>
-<br>
-
 
 <div class="col-12 col-sm-12 text-center  row">
+
       <div class="col-1"></div>
-      <div class="col-10 col-sm-12 text-center" style="width: 90%; background-color: white ;">
-            <div id="dimScreen" *ngIf="loading" class="d-flex  justify-content-center">
-                  <div style="height: 100%;   display:flex;
+
+
+      <div>
+            <br>
+            <br>
+            <br>
+
+
+            <div class=" toolbox col-11  d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary toolbox-btn"
+                  routerLink="/edit-company" >Edit company Info</button>
+                  <button type="button" class="btn btn-primary toolbox-btn"
+                  routerLink=" " >Add Serduct</button>
+                  <button type="button" class="btn btn-primary toolbox-btn"
+                  routerLink=" " >Upload image</button>
+            </div>
+
+
+
+            <div class="holder-page">
+                  <div class="  d-flex justify-content-center">
+                        <div id="all" class="d-flex justify-content-center col-10 main-row row">
+
+
+                              <div id="dimScreen" *ngIf="loading" class="d-flex  justify-content-center">
+                                    <div style="height: 100%;   display:flex;
             align-items:center;" class=" ">
-                        <div class=" " style="margin: 30px;">
-                              <mat-spinner></mat-spinner>
+                                          <div class=" " style="margin: 30px;">
+                                                <mat-spinner></mat-spinner>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div *ngIf="!loading && !hasCompany">
+                                    <h1> You havn't register any company yet.</h1>
+                              </div>
+
+                              <div id="showCompany" class="row" *ngIf="!loading && hasCompany">
+
+
+                                    <div class="col-12   text-center">
+                                          <p>Company name:</p>
+                                          <h1 class="d-flex justify-content-center  h1-title">
+                                                {{company.companyName}}</h1>
+                                          <p>Company title:</p>
+                                          <h3>{{company.companyTitle}}</h3>
+                                          <p>Company short bio:</p>
+                                          <p>{{company.companyShortBio}}</p>
+                                          <p>Company long bio:</p>
+                                          <p>{{company.companyLongBio}}</p>
+                                          <ul> Contact infos:
+                                                <li *ngFor="let ser of company.contactInfos "> {{GetStringType(ser)}} :
+                                                      {{ser.value}}</li>
+                                          </ul>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div>
+                                          <p>Company profile image:</p>
+                                          <div id="profile-image" class="d-flex  justify-content-center">
+                                                <img [src]="CompanyProfileImage" class="rounded comp-image"
+                                                      alt="product main image">
+                                          </div>
+
+
+                                          <p>Company logo image:</p>
+                                          <div id="logo-image" class="d-flex  justify-content-center">
+
+                                                <img [src]="CompanyLogoImage" class="rounded comp-image"
+                                                      alt="product main image">
+
+                                          </div>
+                                    </div>
+                              </div>
+                              <br>
+                              <br>
                         </div>
                   </div>
             </div>
-
-            <div *ngIf="!loading && hasCompany">
-                  <h1 class="d-flex justify-content-center  h1-title">{{company.companyName}}
-                  </h1>
-                  <h3>{{company.companyTitle}}</h3>
-                  <p>{{company.companyShortBio}}</p>
-                  <p>{{company.companyLongBio}}</p>
-                  <div>
-                        <!-- <ul> Other products:
-                                          <li *ngFor="let ser of company.companySerducts "> {{ser.title}}</li>
-                                    </ul> -->
-                        <ul> Other products:
-                              <li *ngFor="let ser of company.companyContactInfo "> {{
-                                    GetStringType(ser) }} : {{ser.value}}</li>
-                        </ul>
-                  </div>
-            </div>
-            <div *ngIf="!loading && !hasCompany">
-                  <h1> You havn't register any company yet.</h1>
-            </div>
       </div>
-
 </div>

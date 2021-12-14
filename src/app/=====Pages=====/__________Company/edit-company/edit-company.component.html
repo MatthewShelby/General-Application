@@ -87,15 +87,14 @@
                   <br>
             </div>
       </div>
-        
+
 
       <div class="  d-flex justify-content-center">
             <div class="d-flex justify-content-center col-10 main-row row">
                   <div class="row">
                         <div class="col-12 col-sm-12 d-flex justify-content-end">
                               <div class="col-4 d-flex justify-content-end">
-                                    <button mat-raised-button color="accent"
-                                          (click)="RefreshCurrentCompany()">
+                                    <button mat-raised-button color="accent" (click)="RefreshCurrentCompany()">
                                           <span class="material-icons">
                                                 refresh
                                           </span>
@@ -104,7 +103,7 @@
                               </div>
                         </div>
                         <mat-tab-group animationDuration="2000ms">
-                              <mat-tab label="Company Detail"> <br>
+                              <!-- <mat-tab label="Company Detail"> <br>
 
                                    
                                     <div class="col-12 col-sm-12 text-center">
@@ -114,21 +113,24 @@
                                           <p>{{company.companyShortBio}}</p>
                                           <p>{{company.companyLongBio}}</p>
                                           <div>
-                                                <!-- <ul> Other products:
-                                          <li *ngFor="let ser of company.companySerducts "> {{ser.title}}</li>
-                                    </ul> -->
+                                        
+                                                
                                                 <ul> Other products:
-                                                      <li *ngFor="let ser of company.companyContactInfo "> {{
+                                                      <li *ngFor="let ser of company.contactInfos "> {{
                                                             GetStringType(ser) }} : {{ser.value}}</li>
                                                 </ul>
                                           </div>
                                     </div>
-                              </mat-tab>
+                              </mat-tab> -->
 
 
                               <mat-tab label="Edit Detail">
                                     <form class="example-form" [formGroup]="registerForm"
                                           (keydown.enter)="$event.preventDefault()">
+
+                                          <!-- <form class="example-form" [formGroup]="registerForm"
+                                          (keydown.enter)="$event.preventDefault()"> -->
+                                          <br>
 
                                           <mat-form-field class="example-full-width" appearance="fill">
                                                 <mat-label>User (disabled)</mat-label>
@@ -139,6 +141,38 @@
                                           <br>
 
                                           <table class="example-full-width" cellspacing="0">
+                                                <tr style="display: none;">
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company name</mat-label>
+                                                            <input matInput placeholder="Company Name"
+                                                                  formControlName="companyName">
+                                                      </mat-form-field>
+                                                </tr>
+                                                <tr style="display: none;">
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company name</mat-label>
+                                                            <input matInput placeholder="Company Name"
+                                                                  formControlName="companyName">
+                                                      </mat-form-field>
+                                                </tr>
+                                                <tr style="display: none;">
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company name</mat-label>
+                                                            <input matInput placeholder="Company Name"
+                                                                  formControlName="companyName">
+                                                      </mat-form-field>
+                                                </tr>
+                                                <tr style="display: none;">
+                                                      <mat-form-field class="example-full-width" appearance="fill">
+                                                            <mat-label>Company name</mat-label>
+                                                            <input matInput placeholder="Company Name"
+                                                                  formControlName="companyName">
+                                                      </mat-form-field>
+                                                </tr>
+
+
+
+
                                                 <tr>
                                                       <mat-form-field class="example-full-width" appearance="fill">
                                                             <mat-label>Company name</mat-label>
@@ -172,10 +206,11 @@
                                                             <mat-form-field class="example-full-width"
                                                                   appearance="fill">
                                                                   <mat-label>City</mat-label>
-                                                                  <input matInput placeholder="Ex. San Francisco"
-                                                                        formControlName="city">
+                                                                  <input matInput placeholder="Ex. Canada"
+                                                                        formControlName="DD">
                                                             </mat-form-field>
                                                       </td>
+
                                                       <td>
                                                             <mat-form-field class="example-full-width"
                                                                   appearance="fill">
@@ -221,9 +256,9 @@
 
                                                             <mat-hint align="start"><strong>Don't disclose personal
                                                                         info</strong> </mat-hint>
-                                                                        
-                                                            <mat-hint align="end">{{message.value.length}} / 256
-                                                            </mat-hint>
+
+                                                            <!-- <mat-hint align="end">{{message.value.length}} / 256
+                                                            </mat-hint> -->
                                                       </mat-form-field>
                                                 </tr>
                                                 <br>
@@ -231,17 +266,15 @@
                                                       <mat-form-field class="example-full-width  col-12"
                                                             appearance="fill">
                                                             <mat-label>Long bio:</mat-label>
-                                                            <textarea matInput #message maxlength="2001"
+                                                            <textarea matInput #message2 maxlength="2001"
                                                                   style="height: 200px;; resize: none"
-                                                                  formControlName="longBio"
-                                                                  
-                                                                  ></textarea>
+                                                                  formControlName="longBio"></textarea>
 
 
                                                             <mat-hint align="start"><strong>Don't disclose personal
-                                                                        info</strong> </mat-hint>
-                                                            <mat-hint align="end">{{message.value.length}} / 2000
-                                                            </mat-hint>
+                                                                              info</strong> </mat-hint>
+                                                                  <!-- <mat-hint align="end">{{message2.value.length}} / 2000
+                                                                  </mat-hint> -->
                                                       </mat-form-field>
                                                 </tr>
                                                 <br>

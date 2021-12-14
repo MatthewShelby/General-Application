@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, lastValueFrom, Observable, timeout, pipe, Subscription } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable, timeout, map, Subscription } from 'rxjs';
 import { Company, fetchCompany, JsonH, } from 'src/app/==== Lateral ====/DTO';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,49 +14,147 @@ export class CompanyService {
   ) { }
   public homeString: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  
+
+
+  checkIsLogin(): boolean {
+    var isLoggedIn = false;
+    lastValueFrom(
+      this.http.get<JsonH>('account/who-am-i').pipe(timeout(10000))
+    ).then(res => {
+      if (res.status == 'Succeed.') {
+
+
+        isLoggedIn = true;
+      } else {
+        console.log(' isLoggedIn faild!! data: ' + res.data.toString())
+        isLoggedIn = false;
+      }
+    }).catch();
+    return isLoggedIn;
+  }
+
+
   //#region ===== FETCH MY COMPANY =====
 
-  private company = new BehaviorSubject<Company>(new Company('', null, '', []));
+  // public company = new BehaviorSubject<Company>(new Company('', null, '', []));
+  public company = new BehaviorSubject<Company>(new Company('', null, '', []));
+  public companyFetched = new BehaviorSubject<boolean>(false);
+  fetchCompany(): any {
+    console.log('fetchCompany call.')
 
-  fetchCompany() {
     this.http.get<fetchCompany>('companies/get-my-company').subscribe(res => {
       if (res.status == 'Succeed.') {
+        console.log('my compaany found.')
         this.company.next(res.data)
+        this.companyFetched.next(true)
+        return true;
+      } else {
+        return false;
       }
     })
   }
 
-  getMyCompany(): Company {
-    return this.company.value;
+  getMyCompany(): Observable<Company> {
+    if (this.companyFetched) {
+      return this.company
+    } else {
+      lastValueFrom(this.fetchCompany()).then(
+      )
+      return this.company
+    }
   }
 
-
+  getMyCompanyCall(): Observable<fetchCompany> {
+    console.log('Com Ser Call')
+    return this.http.get<fetchCompany>('companies/get-my-company');
+  }
   //#endregion
 
 
 
+  //#region =====  FILE  =====
 
+  uploadCompanyProfile(file: File, companyId: string): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('id', companyId);
+    console.log('uploadCompanyProfile before post ')
+    this.http.post(`serducts/upload-image` + '/df35v41', formData).subscribe(res => {
+      console.log('post res: ' + JSON.stringify(res))
+    });
 
-  
-  putCompany(id: string, company: Company): Observable<Company> {
-    return this.http.put<Company>('serducts/edit-company/' + id, company);
-
-    // console.log('updateCompanyProfile before put ')
-
-    // lastValueFrom(this.http.put<any>('serducts/edit-company/' + id, company,
-    //   { responseType: 'text' as 'json' }).pipe(
-    //     timeout(5000)
-    //   )).then(res => {
-    //     console.log('company edited: ' + JSON.stringify(res));
-    //     return new BehaviorSubject(res.company);
-
-    //   }).catch(res => {
-    //     console.log('errrror')
-    //     console.info(res);
-    //   }
-    //   )
-
-    // return new BehaviorSubject<Company>(company);
+    const req = new HttpRequest('POST', `serducts/upload-image` + '/df35v41', formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req)
   }
+
+
+  uploadCompanyLogo(file: File, companyId: string): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('id', companyId);
+    formData.append('type', 'logo');
+    console.log('uploadCompanyProfile before post ')
+    this.http.post(`serducts/upload-image` + '/df35v41', formData).subscribe(res => {
+      console.log('post res: ' + JSON.stringify(res))
+    });
+    const req = new HttpRequest('POST', `serducts/upload-image` + '/df35v41', formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req)
+  }
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    console.log('upload before post ')
+    this.http.post(`serducts/upload-image` + '/df35v41', formData).subscribe(res => {
+      console.log('post res: ' + JSON.stringify(res))
+    });
+
+    const req = new HttpRequest('POST', `serducts/upload-image` + '/df35v41', formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req)
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`serducts/get-all-serduct-images`);
+  }
+  getFile(id: string): Observable<any> {
+    return this.http.get(`serducts/get-serduct-images/` + id);
+  }
+
+  //#endregion 
+
+
+  //#region  =====  POST & PUT  ===== ....
+
+  postCompany(company: Company): Observable<Company> {
+    return this.http.post<Company>('companies/new-company', company);
+  }
+
+
+
+
+  putCompany(id: string, company: Company): Observable<Company> {
+    return this.http.put<Company>('companies/edit-company/' + id, company);
+  }
+  //#region
+
 }
+
+
+// Http respone erro codes:
+
+// 404 Not found     = api end point is not true;
+// 400               = Probably: The sent model to the api doesnt match to controller's method's input model;
+// 401 Unauthorized  = Cookie token in browser, not found or is nat valid.
+// 500               = Server internal error    more often:
+//                             + DB problem. ex primary key. conflict. .....
+//                             + null objects injection 
+//                             + Infinite Recursion within serializing objects
