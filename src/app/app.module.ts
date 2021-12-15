@@ -35,6 +35,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/user-panel.component';
 import { NewCompanyComponent } from './=====Pages=====/__________Company/new-company/new-company.component';
+import { UploadFileComponent } from './=====Pages=====/__________File/Upload/upload-file/upload-file.component';
+import { UploadImageComponent } from './=====Pages=====/__________File/Upload/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { NewCompanyComponent } from './=====Pages=====/__________Company/new-com
     // MatDialogModule,
     DialogDataExample,
     UserPanelComponent,
+    UploadFileComponent,
+    UploadImageComponent,
   ],
   imports: [
     BrowserModule,

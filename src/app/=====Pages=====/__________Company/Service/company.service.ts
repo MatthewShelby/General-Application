@@ -144,7 +144,7 @@ export class CompanyService {
   putCompany(id: string, company: Company): Observable<Company> {
     return this.http.put<Company>('companies/edit-company/' + id, company);
   }
-  //#region
+  //#endregion
 
 }
 
