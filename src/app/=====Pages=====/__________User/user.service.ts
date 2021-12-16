@@ -26,6 +26,7 @@ export class UserService {
 
   isLoggedInCall() {
     console.log('isLoggedIn start ----')
+    
     this.http.get<JsonH>('account/who-am-i').subscribe(res => {
       if (res.status == 'Succeed.') {
         console.log('isLoggedIn : true')
@@ -94,11 +95,14 @@ export class UserService {
   public loginUser3(model: LoginUser): Observable<boolean> {
     return new Observable((observer: Observer<boolean>) => {
       let data = false;
+      
       setTimeout(()=>{
-        this.loginError.next('Time Out');
-        observer.next(false);
-
+        if (!this.loginResult.value) {
+          this.loginError.next('Time Out');
+          observer.next(false);
+        }
       },8000)
+
       this.http.post<JsonH>('account/login-user', model).pipe(
         timeout(10000)
       ).subscribe(res => {

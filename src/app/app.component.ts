@@ -24,12 +24,14 @@ export class AppComponent {
   title = 'GenApp';
   private userSub: Subscription;
   ngOnInit(): void {
+this._user.isLoggedInCall();;
     this._user.isLoggedInUser.subscribe(res=>{
       this.isLoggedIn.next(res);
     })
+
   }
 
   onChange(){
-    this.isLoggedIn.next(!this.isLoggedIn);
+    this.isLoggedIn.next(!this.isLoggedIn.value);
   }
 }

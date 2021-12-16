@@ -66,6 +66,7 @@ export class CompanyService {
 
   getMyCompanyCall(): Observable<fetchCompany> {
     console.log('Com Ser Call')
+    // return this.http.get<fetchCompany>('companies/get-test');
     return this.http.get<fetchCompany>('companies/get-my-company');
   }
   //#endregion
@@ -149,12 +150,4 @@ export class CompanyService {
 }
 
 
-// Http respone erro codes:
 
-// 404 Not found     = api end point is not true;
-// 400               = Probably: The sent model to the api doesnt match to controller's method's input model;
-// 401 Unauthorized  = Cookie token in browser, not found or is nat valid.
-// 500               = Server internal error    more often:
-//                             + DB problem. ex primary key. conflict. .....
-//                             + null objects injection 
-//                             + Infinite Recursion within serializing objects

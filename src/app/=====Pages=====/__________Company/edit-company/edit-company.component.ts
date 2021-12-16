@@ -15,34 +15,20 @@ import { CompanyService } from '../Service/company.service';
 export class EditCompanyComponent implements OnInit {
   public company: Company = new Company('', null, '', []);;
   public registerForm!: FormGroup;
+  public companyId: string='';
 
   constructor(
     private companyService: CompanyService,
     private cookie: CookieService,
     private router: Router
 
-  ) {
-
-
-    // this.companyService.getMyCompanyCall().subscribe(res => {
-    //   this.company = res.data
-    // });
-
-
-    /*s.companyService.getMyCompany().pipe(timeout(4000)).subscribe(res => {
-      if (res.status == 'Succeed.') {
-        this.company = res.data
-      }
-    }
-    )
-    */
-  }
+  ) {}
 
   ngOnInit(): void {
 
     this.companyService.getMyCompanyCall().subscribe(res => {
       this.company = res.data;
-    
+    this.companyId = this.company.id;
 
     setTimeout(() => {
 

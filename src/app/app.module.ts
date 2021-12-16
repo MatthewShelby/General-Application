@@ -102,3 +102,18 @@ import { UploadImageComponent } from './=====Pages=====/__________File/Upload/up
 })
 export class AppModule { }
 // From phone second commit
+
+
+// Http respone erro codes:
+
+// 404 Not found     = api end point is not true;
+// 400               = Probably: The sent model to the api doesnt match to controller's method's input model;
+// 401 Unauthorized  = Cookie token in browser, not found or is nat valid.
+// 415               = the server refuses to accept the request because the payload format is in an
+//                     unsupported format. which mean there is a conflict in [FromBody] or 
+//                     [FromQuery] at the server or client is sending a bad body
+// 500               = Server internal error    more often:
+//                             + DB problem. ex primary key. conflict. .....
+//                             + null objects injection 
+//                             + Infinite Recursion within serializing objects
+//                             + Folder doesn't exist on the server to save the file
