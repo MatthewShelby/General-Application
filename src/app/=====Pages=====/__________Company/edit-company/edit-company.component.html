@@ -97,9 +97,13 @@
                                     <button mat-raised-button color="accent" (click)="RefreshCurrentCompany()">
                                           <span class="material-icons">
                                                 refresh
-                                          </span>
-                                          Refresh</button>
-
+                                          </span>Refresh
+                                    </button>
+                                    <br>
+                                    <a [routerLink]="['/userPanel'] "  [fragment]="'pro-img'"> us 1 ---  </a>
+                                    <br>
+                                    <br>
+                                    <a [routerLink]="['/userPanel'] "  [fragment]="'logo-img'"> us 2 </a>
                               </div>
                         </div>
                         <mat-tab-group animationDuration="2000ms">
@@ -272,8 +276,8 @@
 
 
                                                             <mat-hint align="start"><strong>Don't disclose personal
-                                                                              info</strong> </mat-hint>
-                                                                  <!-- <mat-hint align="end">{{message2.value.length}} / 2000
+                                                                        info</strong> </mat-hint>
+                                                            <!-- <mat-hint align="end">{{message2.value.length}} / 2000
                                                                   </mat-hint> -->
                                                       </mat-form-field>
                                                 </tr>
@@ -293,13 +297,15 @@
 
 
 
-                              <mat-tab label="Third">
-                                    <h1>Upload Image:</h1>
-                              <div>
-                                    <h2>Upload company profile image:</h2>
-                                    <app-upload-image  [companyId]="companyId"></app-upload-image>
-                              </div>
+                              <mat-tab label="Profile Image">
+                                    <div>
+                                          <br>
+                                          <br>
+                                          <app-upload-image [companyId]="companyId"></app-upload-image>
+                                    </div>
                               </mat-tab>
+
+                              
                         </mat-tab-group>
 
 

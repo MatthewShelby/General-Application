@@ -10,7 +10,7 @@ import { UserService } from './=====Pages=====/__________User/user.service';
 export class AppComponent {
   LogSit = new EventEmitter<boolean>();
   // public isLoggedIn = false;
-  public  isLoggedIn = new BehaviorSubject<boolean>(false);
+  public isLoggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(
     private _user: UserService
@@ -24,14 +24,14 @@ export class AppComponent {
   title = 'GenApp';
   private userSub: Subscription;
   ngOnInit(): void {
-this._user.isLoggedInCall();;
-    this._user.isLoggedInUser.subscribe(res=>{
+    this._user.isLoggedInCall();;
+    this._user.isLoggedInUser.subscribe(res => {
       this.isLoggedIn.next(res);
     })
 
   }
 
-  onChange(){
+  onChange() {
     this.isLoggedIn.next(!this.isLoggedIn.value);
   }
 }

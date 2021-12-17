@@ -27,7 +27,7 @@ export class UserService {
   isLoggedInCall() {
     console.log('isLoggedIn start ----')
     
-    this.http.get<JsonH>('account/who-am-i').subscribe(res => {
+    this.http.get<JsonH>('account/who-am-i').pipe(timeout(5000)).subscribe(res => {
       if (res.status == 'Succeed.') {
         console.log('isLoggedIn : true')
         this.isLoggedInUser.next(true)
@@ -35,7 +35,9 @@ export class UserService {
         console.log('isLoggedIn : false')
         this.isLoggedInUser.next(false)
       }
-    })
+    }
+    
+    )
 
 
  

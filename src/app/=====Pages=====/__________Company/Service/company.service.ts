@@ -67,7 +67,9 @@ export class CompanyService {
   getMyCompanyCall(): Observable<fetchCompany> {
     console.log('Com Ser Call')
     // return this.http.get<fetchCompany>('companies/get-test');
-    return this.http.get<fetchCompany>('companies/get-my-company');
+    var res = this.http.get<fetchCompany>('companies/get-my-company');
+    console.info(res);
+    return res;
   }
   //#endregion
 

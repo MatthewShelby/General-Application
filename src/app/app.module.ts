@@ -37,6 +37,8 @@ import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/
 import { NewCompanyComponent } from './=====Pages=====/__________Company/new-company/new-company.component';
 import { UploadFileComponent } from './=====Pages=====/__________File/Upload/upload-file/upload-file.component';
 import { UploadImageComponent } from './=====Pages=====/__________File/Upload/upload-image/upload-image.component';
+import { RouterModule, Routes } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -115,5 +117,6 @@ export class AppModule { }
 // 500               = Server internal error    more often:
 //                             + DB problem. ex primary key. conflict. .....
 //                             + null objects injection 
-//                             + Infinite Recursion within serializing objects
+//                             + Infinite Recursion within serializing objects.         
+//                                  ADD [JsonIgnore] to navigation properties
 //                             + Folder doesn't exist on the server to save the file

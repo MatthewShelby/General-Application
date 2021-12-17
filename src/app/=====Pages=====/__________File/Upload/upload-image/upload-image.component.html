@@ -1,41 +1,85 @@
+
+
 <div class="row">
-  <h4> - id: {{companyId}}</h4>
-      <div class="col-8">
-        <label class="btn btn-default p-0">
-          <input type="file" (change)="selectFile($event)" />
-        </label>
-      </div>
-    
-      <div class="col-4">
-        <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
-          Upload
-        </button>
-      </div>
-    </div>
-    
-    <div *ngIf="currentFile" class="progress my-3">
-      <div
-        class="progress-bar progress-bar-info progress-bar-striped"
-        role="progressbar"
-        attr.aria-valuenow="{{ progress }}"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        [ngStyle]="{ width: progress + '%' }"
-      >
-        {{ progress }}%
-      </div>
-    </div>
-    
-    <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-    
-    <div class="card mt-3">
+  <div> 
+    <h2>Choose a profile image.</h2>
+    <p>*If you have any existing image, it will be delete premenantly.</p>
+    <label for="">Enter Alternative text:</label>
+    <input [(ngModel)]="altText" type="text" style="width: 70%;">
+  </div>
+  <div class="col-8">
+    <label class="btn btn-default p-0">
+      <input type="file" (change)="selectFile($event)" />
+    </label>
+  </div>
+
+  <div class="col-4">
+    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+      Upload
+    </button>
+  </div>
+</div>
+
+<div *ngIf="currentFile" class="progress my-3">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+    attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+    {{ progress }}%
+  </div>
+</div>
+
+<div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="row">
+  <div> 
+    <h2>Choose a logo image.</h2>
+    <p>*If you have any existing image, it will be delete premenantly.</p>
+    <label for="">Enter Alternative text:</label>
+    <input [(ngModel)]="altText2" type="text" style="width: 70%;">
+  </div>
+  <div class="col-8">
+    <label class="btn btn-default p-0">
+      <input type="file" (change)="selectFile2($event)" />
+    </label>
+  </div>
+
+  <div class="col-4">
+    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles2" (click)="upload2()">
+      Upload
+    </button>
+  </div>
+</div>
+
+<div *ngIf="currentFile2" class="progress my-3">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+    attr.aria-valuenow="{{ progress2 }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+    {{ progress2 }}%
+  </div>
+</div>
+
+<div *ngIf="message2" class="alert alert-secondary" role="alert">{{ message2 }}</div>
+
+
+
+<!-- <div class="card mt-3">
       <div class="card-header">List of Files</div>
       <ul
         class="list-group list-group-flush"
         *ngFor="let file of fileInfos | async"
       >
         <li class="list-group-item">
-          <a href="{{ file.url }}">{{ file.name }}</a>
+          <a href="{{ file }}">{{ file.name }}</a>
         </li>
+
       </ul>
-    </div>S
+    </div> -->

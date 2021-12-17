@@ -41,8 +41,7 @@ export class Company {
       public companyTitle!: string;
       public companyShortBio!: string;
       public companyLongBio!: string;
-      public profileImage!: CompanyImage | null;
-      public logoImage!: CompanyImage | null;
+      public images!: CompanyImage[] | null;
       public companySerducts!: Serduct[];
 }
 
@@ -92,7 +91,7 @@ export class SerductImage {      // add img alt="..." Later
 export class CompanyImage {      // add img alt="..." Later
       constructor(
             public id: string,
-            public imageType: ImageType,
+            public companyImageType: CompanyImageType,
             public address: string,
             public altText: string
       ) { }
@@ -104,6 +103,11 @@ export enum ImageType {
       catalog,               // 640*640
       cover,                 // 400*1400
       full,                  // 700*1400
+}
+export enum CompanyImageType {
+      logo,                   // 75*75
+      profile,                // 640*640
+      other
 }
 
 
