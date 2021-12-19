@@ -3,7 +3,8 @@
 export class Serduct {
       constructor(
             public id: string,
-            public owner: string,  // changed to string to avoid Json loop
+            public CompanyId: string,  // changed to string to avoid Json loop
+            public Company: string,  // changed to string to avoid Json loop
             public serductType: SerductType,
       ) { }
 
@@ -19,6 +20,7 @@ export class Serduct {
 export enum SerductType {
       Service,
       Product,
+      Other,
 }
 
 
@@ -42,7 +44,7 @@ export class Company {
       public companyShortBio!: string;
       public companyLongBio!: string;
       public images!: CompanyImage[] | null;
-      public companySerducts!: Serduct[];
+      public serducts!: Serduct[];
 }
 
 export class ContactInfo {

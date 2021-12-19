@@ -37,7 +37,8 @@ import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/
 import { NewCompanyComponent } from './=====Pages=====/__________Company/new-company/new-company.component';
 import { UploadFileComponent } from './=====Pages=====/__________File/Upload/upload-file/upload-file.component';
 import { UploadImageComponent } from './=====Pages=====/__________File/Upload/upload-image/upload-image.component';
-import { RouterModule, Routes } from '@angular/router';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { RouterModule, Routes } from '@angular/router';
     MatTabsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRadioModule,MatNativeDateModule
   ],
   exports: [
     CommonModule,

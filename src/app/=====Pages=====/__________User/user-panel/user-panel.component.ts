@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { catchError, filter, scheduled, throwError, timeout, TimeoutError } from 'rxjs';
-import { Company, CompanyImage, CompanyImageType, ContactInfo, ContactInfoType, fetchCompany } from 'src/app/==== Lateral ====/DTO';
+import { BehaviorSubject, catchError, filter, scheduled, throwError, timeout, TimeoutError } from 'rxjs';
+import { Company, CompanyImage, CompanyImageType, ContactInfo, ContactInfoType, fetchCompany, Serduct } from 'src/app/==== Lateral ====/DTO';
 import { GlobalConsts } from 'src/app/==== Lateral ====/Globals';
 import { CompanyService } from '../../__________Company/Service/company.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { SerductService } from '../../__________Serduct/-----Service/serduct.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -22,13 +23,57 @@ export class UserPanelComponent implements OnInit {
   loading = true;
 
   public company = new Company('', null, '', []);
-
+  public serducts !: Serduct[] ;
+public serductsCount = 0;
   constructor(
     private companyService: CompanyService,
-    private sanitizer: DomSanitizer
-  ) { }
+    private sanitizer: DomSanitizer,
+    private _serduct: SerductService,
+  ) { 
+    // this._serduct.setMySerduct();
+  }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.serducts = this._serduct.getMySerducts();
+    }, 1000)
+
+
+    setTimeout(() => {
+      this.serductsCount = this.serducts.length;
+    }, 3000)
+
+
+    //#region Serducts
+
+// this._serduct.serducts.subscribe(res=>{
+//   this.serducts.next(res)
+// })
+
+/*
+    try {
+
+      this.serducts = this._serduct.getMySerducts().;
+      console.info(this.serducts)
+
+      setTimeout(() => {
+        this.serducts.next(this._serduct.getMySerducts());
+        console.info(this.serducts)
+
+      }, 1000)
+
+    } catch (error) {
+
+    }
+    */
+    //#endregion
+
+
+
+
+
+
+
     this.CompanyProfileImage = GlobalConsts.imageNotFoundAddress;
     this.CompanyLogoImage = GlobalConsts.imageNotFoundAddress;
     setTimeout(() => {

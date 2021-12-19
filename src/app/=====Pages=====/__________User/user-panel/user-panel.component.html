@@ -43,6 +43,27 @@
                               <div class="row" *ngIf="!loading && hasCompany">
 
 
+
+                                    <div class="holder-page">
+                                          serducts:
+                                          <div class=" carousel-inner">
+                                                <div class="carousel-item  active ">
+                                                      <div class="row col-12 sub-slide">
+                                                            lalala : {{serducts.length}}
+
+                                                            <app-serduct-card class="col-12 " style="width: 33%;"
+                                                                  *ngFor="let lolo of serducts" [serduct]="lolo">
+                                                            </app-serduct-card>
+
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+
+
+
+
+
                                     <div class="col-12   text-center">
                                           <p>Company name:</p>
                                           <h1 class="d-flex justify-content-center  h1-title">
@@ -64,27 +85,37 @@
 
 
 
-                                         
+
                                     </div>
                               </div>
                               <br>
                               <br>
                               <div>
-                                    <h3  id="pro-img">Company profile image:</h3>
 
-                                    <div id="profile-image" class="d-flex  justify-content-center">
-                                          <img [src]="sanitizeImageUrl(CompanyProfileImage)" class="rounded comp-image"
-                                          [alt]="CompanyProfileImageAltText">
+                                    <div class="row">
+                                          <div class="col-6">
+                                                <h3 id="pro-img">Company profile image:</h3>
+
+                                                <div id="profile-image" class="d-flex  justify-content-center">
+
+                                                      <img [src]="sanitizeImageUrl(CompanyProfileImage)"
+                                                            class="rounded comp-image"
+                                                            [alt]="CompanyProfileImageAltText">
+                                                </div>
+                                          </div>
+
+                                          <div class="col-6">
+                                                <h3 id="logo-img">Company logo image:</h3>
+
+                                                <div class="d-flex  justify-content-center">
+
+                                                      <img id="profile-image" [src]="CompanyLogoImage"
+                                                            class="rounded comp-image" [alt]="CompanyLogoImageAltText">
+
+                                                </div>
+                                          </div>
                                     </div>
-                              </div>
-                              <div >
-                                    <h3 id="logo-img">Company logo image:</h3>
-                                    <div class="d-flex  justify-content-center">
 
-                                          <img  id="profile-image" [src]="CompanyLogoImage" class="rounded comp-image"
-                                          [alt]="CompanyLogoImageAltText">
-
-                                    </div>
                               </div>
                         </div>
                   </div>

@@ -75,3 +75,78 @@ tr h3 {
 .toolbox-btn{
       margin-left: 1rem;
 }
+
+
+
+.sub-slide{
+      overflow: hidden;width: 960px;
+}
+
+#pad{ 
+      background-color: rgb(255, 255, 255,0.7);
+      padding: 20px;
+      border-radius: 20px;
+}
+
+.pointer {
+      cursor: pointer;
+}
+
+
+.soBig{
+      font-size: 4rem;
+      color: lightcyan;
+      text-shadow: rgb(247, 94, 33) 1px 1px 11px ;
+}
+
+.carousel-item {
+      width: 90%;
+}
+    
+
+
+.ser-main{
+      /* padding: 30px; */
+      height: 100% !important; 
+      width: 100% !important;
+      border-radius: 30px;
+      white-space: normal;
+      border: rgb(81, 48, 224) 6px solid !important;
+      /* position: relative; */
+      padding: 110px 60px 60px 60px;
+      box-sizing: border-box;
+}
+
+.sub-main{
+      border:#A8A8A8 3px solid !important;
+      border-radius: 10px;
+      height: 100% !important; 
+      width: 100% !important;
+      padding: 30px;
+      box-sizing: border-box;
+      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      
+      
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

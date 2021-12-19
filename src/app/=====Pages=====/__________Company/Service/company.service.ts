@@ -63,7 +63,15 @@ export class CompanyService {
       return this.company
     }
   }
-
+  getMyCompanyId(): string {
+    if (this.companyFetched) {
+      return this.company.value.id
+    } else {
+      lastValueFrom(this.fetchCompany()).then(
+      )
+      return this.company.value.id
+    }
+  }
   getMyCompanyCall(): Observable<fetchCompany> {
     console.log('Com Ser Call')
     // return this.http.get<fetchCompany>('companies/get-test');

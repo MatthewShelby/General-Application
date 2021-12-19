@@ -106,7 +106,7 @@ export class NewCompanyComponent implements OnInit {
     model.contactInfos.push(country)
     model.contactInfos.push(postalCode)
     model.images = null;
-    model.companySerducts = [];
+    model.serducts = [];
     //#endregion
     this.companyService.postCompany(model).subscribe(res => {
       if (res.id.length > 5) {

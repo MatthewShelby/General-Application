@@ -1,16 +1,16 @@
 <div class="card main-card">
 
-  <mat-card class="example-card ">
+  <mat-card class="example-card " >
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image">
-        <img [src]="thumbnail" alt="thumbnail image">
+      <div mat-card-avatar>
+        <img [src]="thumbnail" alt="thumbnail image" class="example-header-image-logo">
       </div>
       <mat-card-title style="height: 40px !important; overflow: hidden;">{{serduct.title}}</mat-card-title>
       <mat-card-subtitle>{{serduct.category}} > {{serduct.subCategory}}</mat-card-subtitle>
     </mat-card-header>
     <div class="img-frame text-center">
       <img mat-card-image style="height: 190px;" class="card-img card-img-top img-thumbnail" src="{{cardImage}}"
-        alt="Photo of a Shiba Inu">
+        alt="Photo of card">
     </div>
     <mat-card-content style="margin-bottom: 3px;">
       <p class="card-text" style=" height: 102px;  padding:2px 12px 6px 12px; overflow: hidden;">
