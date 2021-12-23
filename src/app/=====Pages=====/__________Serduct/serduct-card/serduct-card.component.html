@@ -22,10 +22,17 @@
         style="font-size: 0.7rem;padding: 1px 1px !important"> <span class="material-icons">
           more
         </span> SEE MORE</button>
-      <button mat-button class="btn btn-outline-secondary" style="font-size: 0.7rem;padding: 1px 1px !important"> <span
+      <button mat-button class="btn btn-outline-secondary" style="font-size: 0.7rem;padding: 1px 1px !important"
+      > <span
           class="material-icons" style="color:yellowgreen">
           star_border
         </span> SAVE</button>
+
+      <button mat-button class="btn btn-outline-secondary" style="font-size: 0.7rem;padding: 1px 1px !important"
+      (click)="goToEdit()">
+        <span class="material-icons">
+          edit
+          </span> Edit</button>
     </mat-card-actions>
   </mat-card>
 </div>

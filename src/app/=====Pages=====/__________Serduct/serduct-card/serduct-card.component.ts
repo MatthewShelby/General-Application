@@ -18,12 +18,12 @@ export class SerductCardComponent implements OnInit {
   @Input() serduct!: Serduct;
   constructor(
     private servise: SerductService,
-    private router: Router
+    private _router: Router
   ) { }
 
   transfer() {
     // this.servise.setActiveSerduct(this.serduct);
-    this.router.navigate(['detail']);
+    this._router.navigate(['detail']);
   }
 
   ngOnInit(): void {
@@ -39,5 +39,7 @@ export class SerductCardComponent implements OnInit {
 
   }
 
-
+  goToEdit() {
+    this._router.navigate(['edit-serduct/' + this.serduct.id]) ;
+  }
 }

@@ -22,7 +22,63 @@ export class EditCompanyComponent implements OnInit {
     private cookie: CookieService,
     private router: Router
 
-  ) {}
+  ) {
+    this.registerForm = new FormGroup({
+      'companyName': new FormControl(this.company.companyName, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(100)
+      ]),
+      'phoneNumber': new FormControl(this.company.contactInfos.find(
+        c => ContactInfoType[c.type].toString() == 'phoneNumber')?.value
+        , [
+          Validators.minLength(11),
+          Validators.required,
+          Validators.pattern("^[0-9]*$"),
+          Validators.maxLength(16)
+        ]),
+      'address': new FormControl(this.company.contactInfos.find(
+        c => ContactInfoType[c.type].toString() == 'address')?.value, [
+        Validators.minLength(12),
+        Validators.required,
+        Validators.maxLength(200)
+      ]),
+      'DD': new FormControl(this.company.contactInfos.find(
+        c => ContactInfoType[c.type].toString() == 'city')?.value, [
+        Validators.minLength(4),
+        Validators.required,
+        Validators.maxLength(40)
+      ]),
+      'country': new FormControl(this.company.contactInfos.find(
+        c => ContactInfoType[c.type].toString() == 'country')?.value, [
+        Validators.minLength(3),
+        Validators.required,
+        Validators.maxLength(40)
+      ])
+      ,
+      'postalCode': new FormControl(this.company.contactInfos.find(
+        c => ContactInfoType[c.type].toString() == 'postalCode')?.value, [
+        Validators.minLength(5),
+        Validators.required,
+        Validators.maxLength(18)
+      ]),
+      'companyTitle': new FormControl(this.company.companyTitle, [
+        Validators.minLength(5),
+        Validators.required,
+        Validators.maxLength(40)
+      ]),
+      'shortBio': new FormControl(this.company.companyShortBio, [
+        Validators.minLength(20),
+        Validators.required,
+        Validators.maxLength(256)
+      ]),
+      'longBio': new FormControl(this.company.companyLongBio, [
+        Validators.minLength(100),
+        Validators.required,
+        Validators.maxLength(2001)
+      ])
+    })
+  }
 
   ngOnInit(): void {
 
@@ -95,6 +151,8 @@ export class EditCompanyComponent implements OnInit {
       // }
 
     }, 2000)
+
+    
   })
 
 

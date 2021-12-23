@@ -1,0 +1,68 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>num: {{num}}</h1>
+<div class="form-frame">
+
+      <label id="example-radio-group-label">Select the serdudct type</label><br>
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="serductTypeSelect">
+            <mat-radio-button [value]="0">Service</mat-radio-button><br>
+            <mat-radio-button [value]="1">Product</mat-radio-button><br>
+            <mat-radio-button [value]="2">Other</mat-radio-button>
+      </mat-radio-group><br><br>
+
+
+ 
+
+
+      <div class="example-form" [formGroup]="registerForm" (keydown.enter)="$event.preventDefault()">
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Title:</mat-label>
+                  <input matInput placeholder="Title" formControlName="title">
+            </mat-form-field><br><br>
+
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Category:</mat-label>
+                  <input matInput placeholder="Category" formControlName="category">
+            </mat-form-field><br><br>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Sub Category:</mat-label>
+                  <input matInput placeholder="Sub Category" formControlName="subCategory">
+            </mat-form-field><br><br>
+
+            <mat-form-field class="example-full-width  col-12" appearance="fill">
+                  <mat-label>Short Description:</mat-label>
+                  <input matInput #message maxlength="256" placeholder="Ex. I need help with..." style="height: 100px;"
+                        formControlName="shortDescription">
+                  <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field><br><br>
+
+            <mat-form-field class="example-full-width  col-12" appearance="fill">
+                  <mat-label>Long Description:</mat-label>
+                  <input matInput #lb maxlength="2001" placeholder="Ex. I need help with..." style="height: 200px;"
+                        formControlName="longDescription">
+                  <mat-hint align="end">{{lb.value.length}} / 2000</mat-hint>
+            </mat-form-field><br><br>
+
+
+
+            <button mat-raised-button color="primary" (click)="ngSubmit()"
+                  [disabled]="!registerForm.valid">Submit</button>
+      </div>
+
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

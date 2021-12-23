@@ -6,11 +6,39 @@ import { CompanyService } from '../../__________Company/Service/company.service'
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { SerductService } from '../../__________Serduct/-----Service/serduct.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-user-panel',
   templateUrl: './user-panel.component.html',
-  styleUrls: ['./user-panel.component.css']
+  styleUrls: ['./user-panel.component.css'],
+  animations: [
+    trigger('animationOption1', [
+      state('start', style({
+        backgroundColor: 'gray',
+        width: '100%',
+        height: '1px'
+      })),
+      state('end', style({
+        backgroundColor: 'lightgray',
+        width: '100%',
+        height: '600px'
+        
+      })),
+      transition('start => end', animate(1500)),
+      transition('end => start', animate('800ms 0.5s ease-out'))
+    ]),
+    trigger('animationOption2', [
+      transition(':enter', [
+        style({ backgroundColor: 'yellow' }),
+        animate(300)
+      ]),
+      transition(':leave', [
+        animate(300, style({ backgroundColor: 'yellow' }))
+      ]),
+      state('*', style({ backgroundColor: 'green' })),
+    ])
+  ]
 })
 export class UserPanelComponent implements OnInit {
   public CompanyProfileImage?= GlobalConsts.imageNotFoundAddress;
@@ -23,15 +51,34 @@ export class UserPanelComponent implements OnInit {
   loading = true;
 
   public company = new Company('', null, '', []);
-  public serducts !: Serduct[] ;
-public serductsCount = 0;
+  public serducts !: Serduct[];
+  public serductsCount = 0;
   constructor(
     private companyService: CompanyService,
     private sanitizer: DomSanitizer,
     private _serduct: SerductService,
-  ) { 
+  ) {
     // this._serduct.setMySerduct();
   }
+
+  isMenuOpen = false;
+  showSerCards = false;
+  clickedDivState = 'start';
+
+  changeDivState() {
+    this.clickedDivState = 'end';
+    setTimeout(() => {
+      //this.clickedDivState = 'start';
+      this.showSerCards = true;
+
+    }, 1500);
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -41,32 +88,10 @@ public serductsCount = 0;
 
     setTimeout(() => {
       this.serductsCount = this.serducts.length;
+      this.isMenuOpen = true;
+      this.changeDivState()
     }, 3000)
 
-
-    //#region Serducts
-
-// this._serduct.serducts.subscribe(res=>{
-//   this.serducts.next(res)
-// })
-
-/*
-    try {
-
-      this.serducts = this._serduct.getMySerducts().;
-      console.info(this.serducts)
-
-      setTimeout(() => {
-        this.serducts.next(this._serduct.getMySerducts());
-        console.info(this.serducts)
-
-      }, 1000)
-
-    } catch (error) {
-
-    }
-    */
-    //#endregion
 
 
 

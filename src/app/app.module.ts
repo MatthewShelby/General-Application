@@ -39,6 +39,7 @@ import { UploadFileComponent } from './=====Pages=====/__________File/Upload/upl
 import { UploadImageComponent } from './=====Pages=====/__________File/Upload/upload-image/upload-image.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatNativeDateModule} from '@angular/material/core';
+import { EditSerductComponent } from './=====Pages=====/__________serduct/edit-serduct/edit-serduct.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     UserPanelComponent,
     UploadFileComponent,
     UploadImageComponent,
+    EditSerductComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,12 +8,14 @@ import { EditCompanyComponent } from './=====Pages=====/__________Company/edit-c
 import { LoginComponent } from './=====Pages=====/__________User/login/login.component';
 import { RegisterComponent } from './=====Pages=====/__________User/register/register.component';
 import { UserPanelComponent } from './=====Pages=====/__________User/user-panel/user-panel.component';
+import { EditSerductComponent } from './=====Pages=====/__________serduct/edit-serduct/edit-serduct.component';
 
 
 const routes: Routes = [
   // { path: 'test', component: ChildComponent },
   { path: 'ser', component: SerductComponent },
   { path: 'newS', component: NewSerductComponent },
+  { path: 'edit-serduct/:id', component: EditSerductComponent, },
   { path: 'newC', component: NewCompanyComponent },
   { path: 'edit-company', component: EditCompanyComponent },
   { path: 'signin', component: LoginComponent },

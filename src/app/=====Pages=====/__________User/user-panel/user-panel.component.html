@@ -17,8 +17,8 @@
             <div class=" toolbox col-11  d-flex justify-content-end">
                   <button type="button" class="btn btn-primary toolbox-btn" routerLink="/edit-company">Edit company
                         Info</button>
-                  <button type="button" class="btn btn-primary toolbox-btn" routerLink=" ">Add Serduct</button>
-                  <button type="button" class="btn btn-primary toolbox-btn" routerLink=" ">Upload image</button>
+                  <button type="button" class="btn btn-primary toolbox-btn" routerLink="/newS">Add Serduct</button>
+                  <button type="button" class="btn btn-primary toolbox-btn" routerLink="/uploadSerductImage">Upload image</button>
             </div>
 
 
@@ -42,14 +42,20 @@
 
                               <div class="row" *ngIf="!loading && hasCompany">
 
+                                    <!--  -->
+                                    <div style="height: 15px;"></div>
+                                    <div class="holder-page" [@animationOption1]="clickedDivState">
 
 
-                                    <div class="holder-page">
-                                          serducts:
+
                                           <div class=" carousel-inner">
                                                 <div class="carousel-item  active ">
-                                                      <div class="row col-12 sub-slide">
-                                                            lalala : {{serducts.length}}
+                                                      <div class="row col-12 sub-slide" *ngIf="showSerCards">
+                                                            <div
+                                                                  style=" width: 70%; margin:2rem;background-color: darkgrey">
+                                                                  <h1>serducts:</h1>
+                                                            </div>
+                                                            <div style="height: 15px;"></div>
 
                                                             <app-serduct-card class="col-12 " style="width: 33%;"
                                                                   *ngFor="let lolo of serducts" [serduct]="lolo">

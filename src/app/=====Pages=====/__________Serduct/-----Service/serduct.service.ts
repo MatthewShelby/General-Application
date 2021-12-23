@@ -29,9 +29,9 @@ export class SerductService {
         console.log('comps ##')
         console.info(this.company.value.serducts)
         this.serducts = this.company.value.serducts;
-        console.log('sers: ' + JSON.stringify(this.serducts))
+        ///console.log('sers: ' + JSON.stringify(this.serducts))
 
-        
+
       }
     })
   }
@@ -45,9 +45,14 @@ export class SerductService {
 
   getMySerducts(): Serduct[] {
 
-console.log('from serduct Service getMySerduct - Serducts: '+JSON.stringify(this.serducts))
+    //console.log('from serduct Service getMySerduct - Serducts: ' + JSON.stringify(this.serducts))
     return this.serducts;
 
+  }
+
+
+  getSerductById(id : string){
+    return this.http.get<Serduct>('serduct/get-serduct-by-id/'+id);
   }
   /*
     setMySerduct() {
